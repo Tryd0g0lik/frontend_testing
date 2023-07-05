@@ -9,7 +9,7 @@ const isProduction = process.env.NODE_ENV; // == "production";
 const config = {
 	mode: "none",
 	target: "web",
-	entry: "./src/index.js",
+	entry: "./src/index.ts",
 	output: {
 		path: path.resolve(__dirname, "./dist"),
 	},
