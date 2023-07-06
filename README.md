@@ -67,3 +67,24 @@
 К предыдущей задаче подключите JSDOM и реализуйте проверку с использованием `jest.each` (т.е. вам надо проверить взаимодействие с DOM).
 
 Удостоверьтесь, что всё работает при прогоне тестов в Appveyor.
+
+## Заметки
+### Номера карт начинаются с
+
+2-Мир \
+3- American Express, JCB International, Diners Club \
+____30,36,38-Diners Club \
+____31,35-JCB International \
+____34,37-American Express \
+4- VISA \
+5- MasterCard, Maestro \
+____50,56,57,58-Maestro \
+____51,52,53,54,55-MasterCard \
+6- Maestro, China UnionPay, Discover \
+____60-Discover \
+____62 - China UnionPay \
+____63, 67 - Maestro \
+7-УЭК \
+<br>
+Первые 6 цифр - это БИН ( Банковский Идентификационный Номер ) выпустившего карту банка. \
+А это сервис, позволяющий по [БИН узнать название банка](https://psm7.com/bin-card)

@@ -1,6 +1,9 @@
 // Generated using webpack-cli https://github.com/webpack/webpack-cli
-
+process.traceDeprecation = true;
 const path = require("path");
+const TsconfigPathPlugin = require("tsconfig-paths-webpack-plugin");
+const ImageminWebpWebpackPlugin = require("imagemin-webp-webpack-plugin");
+const CopyPlugin = require("copy-webpack-plugin"); // https://webpack.js.org/plugins/copy-webpack-plugin/
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
@@ -9,7 +12,7 @@ const isProduction = process.env.NODE_ENV; // == "production";
 const config = {
 	mode: "none",
 	target: "web",
-	entry: "./src/index.ts",
+	entry: "./src/index.js",
 	output: {
 		path: path.resolve(__dirname, "./dist"),
 	},
@@ -26,10 +29,16 @@ const config = {
 	plugins: [
 		new HtmlWebpackPlugin({
 			template: "./src/index.html",
+			filename: "./index.html",
+			minify: {
+				collapseWhitespace: false,
+			}
 		}),
 
 		new MiniCssExtractPlugin(),
-
+		new TsconfigPathPlugin({
+			configFile: "./tsconfig-for-webpack-config.json"
+		}),
 		// Add your plugins here
 		// Learn more about plugins from https://webpack.js.org/configuration/plugins/
 	],
@@ -49,6 +58,14 @@ const config = {
 				use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader"],
 				exclude: /node_modules/,
 				sideEffects: true,
+			},
+			{
+				test: /\.html$/,
+				use: [
+					{
+						loader: "html-loader",
+					},
+				]
 			},
 			{
 				test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/i,
