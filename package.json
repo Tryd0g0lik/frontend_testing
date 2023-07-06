@@ -2,13 +2,13 @@
 	"name": "my-webpack-project",
 	"version": "1.0.0",
 	"description": "My webpack project",
-	"main": "index.js",
+	"main": "index.ts",
 	"directories": {
 		"example": "example"
 	},
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"start": "cross-env TS_NODE_PROJECT=\"tsconfig-for-webpack-config.json\"  webpack --config ./webpack.dev.js",
+		"start": "webpack --config ./webpack.dev.js",
 		"build": "webpack --config ./webpack.prod.js",
 		"watch": "webpack --watch",
 		"serve": "webpack serve",

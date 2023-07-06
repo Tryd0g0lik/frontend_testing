@@ -1,4 +1,4 @@
-class CrateForm {
+export class CrateForm {
 	constructor() { }
 
 	get formHtml(): HTMLElement {
@@ -12,17 +12,7 @@ class CrateForm {
 				<li><span class="card jcb cdisabled" title="JCB">JCB</span></li>
 				<li><span class="card diners_club cdisabled" title="Diners Club">Diners Club</span></li>
 			</ul>`
-		//  `<div class="col-md-5">
-		// 	<ul class="cards list-unstyled">
-		// 		<li><span class="card visa" title="Visa">Visa</span></li>
-		// 		<li><span class="card master cdisabled" title="Mastercard">Mastercard</span></li>
-		// 		<li><span class="card amex cdisabled" title="American Express">American Express</span></li>
-		// 		<li><span class="card discover cdisabled" title="Discover">Discover</span></li>
-		// 		<li><span class="card jcb cdisabled" title="JCB">JCB</span></li>
-		// 		<li><span class="card diners_club cdisabled" title="Diners Club">Diners Club</span></li>
-		// 	</ul>
-		// </div>
-		// `
+		// let elem: any = div.cloneNode(true);
 		return div
 	}
 
@@ -45,16 +35,7 @@ class CrateForm {
 
 		div.insertAdjacentElement('beforeend', inp);
 		div.insertAdjacentElement('beforeend', a_link);
-		// `
-		// 	<div class='form'>
-		// 		<input class="form-control col-md-6" id="card_number" name="card_number" type="text"
-		// placeholder = "Credit card number" data - original - title="" title = "" >
-		// 		<a id="submitform" class="btn btn-success">Click to Validate</a>
-		// 	</div>
-		// `
 		return div
-
-		return
 	}
 
 	changeDOM(): void {
@@ -62,7 +43,7 @@ class CrateForm {
 		// keep the class-name from the www-page, into which will be the two html-element insert 
 
 		const web_elem = document.querySelector('main') as HTMLElement;
-		web_elem.insertAdjacentElement('beforeend', this.picPreviewHtml);
+		web_elem.insertAdjacentElement('beforeend', this.formHtml);
 		web_elem.insertAdjacentElement('beforeend', this.picPreviewHtml);
 
 	}

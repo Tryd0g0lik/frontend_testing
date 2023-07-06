@@ -1,1 +1,1 @@
-import "./js/mock";
+import './ts/mains.ts';
