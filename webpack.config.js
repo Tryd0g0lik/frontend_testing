@@ -17,7 +17,7 @@ const config = {
 	target: 'web',
 	entry: './src/index.js',
 	output: {
-		path: path.resolve(__dirname, '/dist'),
+		path: path.resolve(__dirname, './/dist'),
 	},
 	devServer: {
 		open: true,
@@ -39,27 +39,18 @@ const config = {
 		}),
 
 		new MiniCssExtractPlugin(),
-
-		// Add your plugins here
-		// Learn more about plugins from https://webpack.js.org/configuration/plugins/
 	],
 	module: {
 
 		rules: [
 			{
 				test: /\.ts$/,
-				include: [path.resolve(__dirname, 'src/ts'),],
-				use: [{
-					loader: 'ts-loader',
-					options: {
-						transpileOnly: true
-					}
-				}],
-
+				include: [path.resolve(__dirname, './src/ts'),],
+				loader: 'ts-loader',
 			},
 			{
 				test: /\.js$/i,
-				include: [path.resolve(__dirname, 'src/js')],
+				include: [path.resolve(__dirname, './src/js')],
 				use: [{
 					loader: 'babel-loader',
 				},],
@@ -67,7 +58,7 @@ const config = {
 			{
 				test: /\.css$/i,
 				use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader'],
-				include: [path.resolve(__dirname, 'src/*.css')],
+				include: [path.resolve(__dirname, './src/*.css')],
 				sideEffects: true,
 			},
 			{

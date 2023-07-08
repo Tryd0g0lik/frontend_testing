@@ -23,7 +23,7 @@
 		// "moduleDetection": "auto",                        /* Control what method is used to detect module-format JS files. */
 		/* Modules */
 		"module": "commonjs", /* Укажите, какой код модуля генерируется.*/
-		"rootDir": "./", /* Укажите корневую папку в ваших исходных файлах. Обычно './' or ./src'*/
+		"rootDir": "./src", /* Укажите корневую папку в ваших исходных файлах. Обычно './' or ./src'*/
 		// "moduleResolution": "node10",                     /* Specify how TypeScript looks up a file from a given module specifier. */
 		// "baseUrl": "./",                                  /* Укажите базовый каталог для разрешения не относительных имен модулей.*/
 		// "paths": {	}, /*Укажите набор записей, которые повторно сопоставляют импорт с дополнительными местоположениями поиска.*/
