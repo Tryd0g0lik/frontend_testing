@@ -1,46 +1,71 @@
-/*
- * ATTENTION: The "eval" devtool has been used (maybe by default in mode: "development").
- * This devtool is neither made for production nor for readable output files.
- * It uses "eval()" calls to create a separate source file in the browser devtools.
- * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
- * or disable the default devtool with "devtool: false".
- * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
- */
 /******/ (() => { // webpackBootstrap
 /******/ 	"use strict";
-/******/ 	var __webpack_modules__ = ({
-
-/***/ "./src/ts/mains.ts":
-/*!*************************!*\
-  !*** ./src/ts/mains.ts ***!
-  \*************************/
+/******/ 	var __webpack_modules__ = ([
+/* 0 */,
+/* 1 */
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-eval("\nvar CrateForm = (__webpack_require__(/*! ./mock.ts */ \"./src/ts/mock.ts\").CrateForm);\nvar elem = new CrateForm();\nelem.changeDOM();\n\n\n//# sourceURL=webpack://my-webpack-project/./src/ts/mains.ts?");
+
+var CrateForm = (__webpack_require__(2).CrateForm);
+var elem = new CrateForm();
+elem.changeDOM();
+
 
 /***/ }),
-
-/***/ "./src/ts/mock.ts":
-/*!************************!*\
-  !*** ./src/ts/mock.ts ***!
-  \************************/
+/* 2 */
 /***/ ((__unused_webpack_module, exports) => {
 
-eval("\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nexports.CrateForm = void 0;\nvar CrateForm = /** @class */ (function () {\n    function CrateForm() {\n    }\n    Object.defineProperty(CrateForm.prototype, \"formHtml\", {\n        get: function () {\n            var div = document.createElement('div');\n            div.classList.add('col-md-5');\n            div.innerHTML = \"<ul class=\\\"cards list-unstyled\\\">\\n\\t\\t\\t\\t<li><span class=\\\"card visa\\\" title=\\\"Visa\\\">Visa</span></li>\\n\\t\\t\\t\\t<li><span class=\\\"card master cdisabled\\\" title=\\\"Mastercard\\\">Mastercard</span></li>\\n\\t\\t\\t\\t<li><span class=\\\"card amex cdisabled\\\" title=\\\"American Express\\\">American Express</span></li>\\n\\t\\t\\t\\t<li><span class=\\\"card discover cdisabled\\\" title=\\\"Discover\\\">Discover</span></li>\\n\\t\\t\\t\\t<li><span class=\\\"card jcb cdisabled\\\" title=\\\"JCB\\\">JCB</span></li>\\n\\t\\t\\t\\t<li><span class=\\\"card diners_club cdisabled\\\" title=\\\"Diners Club\\\">Diners Club</span></li>\\n\\t\\t\\t</ul>\";\n            // let elem: any = div.cloneNode(true);\n            return div;\n        },\n        enumerable: false,\n        configurable: true\n    });\n    Object.defineProperty(CrateForm.prototype, \"picPreviewHtml\", {\n        get: function () {\n            var div = document.createElement('div');\n            div.classList.add('form');\n            var inp = document.createElement('input');\n            inp.classList.add('form-control', 'col-md-6');\n            inp.id = 'card_number';\n            inp['name'] = 'card_number';\n            inp.type = 'text';\n            inp['placeholder'] = 'Credit card number';\n            var a_link = document.createElement('a');\n            a_link.classList.add('btn', 'btn-success');\n            a_link.id = 'submitform';\n            a_link.innerHTML = 'Click to Validate';\n            div.insertAdjacentElement('beforeend', inp);\n            div.insertAdjacentElement('beforeend', a_link);\n            return div;\n        },\n        enumerable: false,\n        configurable: true\n    });\n    CrateForm.prototype.changeDOM = function () {\n        // TODO: type classElem is a string. It's variable\n        // keep the class-name from the www-page, into which will be the two html-element insert \n        var web_elem = document.querySelector('main');\n        web_elem.insertAdjacentElement('beforeend', this.formHtml);\n        web_elem.insertAdjacentElement('beforeend', this.picPreviewHtml);\n    };\n    return CrateForm;\n}());\nexports.CrateForm = CrateForm;\n\n\n//# sourceURL=webpack://my-webpack-project/./src/ts/mock.ts?");
 
-/***/ }),
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.CrateForm = void 0;
+var CrateForm = /** @class */ (function () {
+    function CrateForm() {
+    }
+    Object.defineProperty(CrateForm.prototype, "formHtml", {
+        get: function () {
+            var div = document.createElement('div');
+            div.classList.add('col-md-5');
+            div.innerHTML = "<ul class=\"cards list-unstyled\">\n\t\t\t\t<li><span class=\"card visa\" title=\"Visa\">Visa</span></li>\n\t\t\t\t<li><span class=\"card master cdisabled\" title=\"Mastercard\">Mastercard</span></li>\n\t\t\t\t<li><span class=\"card amex cdisabled\" title=\"American Express\">American Express</span></li>\n\t\t\t\t<li><span class=\"card discover cdisabled\" title=\"Discover\">Discover</span></li>\n\t\t\t\t<li><span class=\"card jcb cdisabled\" title=\"JCB\">JCB</span></li>\n\t\t\t\t<li><span class=\"card diners_club cdisabled\" title=\"Diners Club\">Diners Club</span></li>\n\t\t\t</ul>";
+            return div;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    Object.defineProperty(CrateForm.prototype, "picPreviewHtml", {
+        get: function () {
+            var div = document.createElement('div');
+            div.classList.add('form');
+            var inp = document.createElement('input');
+            inp.classList.add('form-control', 'col-md-6');
+            inp.id = 'card_number';
+            inp['name'] = 'card_number';
+            inp.type = 'text';
+            inp['placeholder'] = 'Credit card number';
+            var a_link = document.createElement('a');
+            a_link.classList.add('btn', 'btn-success');
+            a_link.id = 'submitform';
+            a_link.innerHTML = 'Click to Validate';
+            div.insertAdjacentElement('beforeend', inp);
+            div.insertAdjacentElement('beforeend', a_link);
+            return div;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    CrateForm.prototype.changeDOM = function () {
+        // TODO: type classElem is a string. It's variable
+        // keep the class-name from the www-page, into which will be the two html-element insert 
+        var web_elem = document.querySelector('main');
+        web_elem.insertAdjacentElement('beforeend', this.formHtml);
+        web_elem.insertAdjacentElement('beforeend', this.picPreviewHtml);
+    };
+    return CrateForm;
+}());
+exports.CrateForm = CrateForm;
 
-/***/ "./src/index.js":
-/*!**********************!*\
-  !*** ./src/index.js ***!
-  \**********************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _ts_mains_ts__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ts/mains.ts */ \"./src/ts/mains.ts\");\n/* harmony import */ var _ts_mains_ts__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_ts_mains_ts__WEBPACK_IMPORTED_MODULE_0__);\n\n\n//# sourceURL=webpack://my-webpack-project/./src/index.js?");
 
 /***/ })
-
-/******/ 	});
+/******/ 	]);
 /************************************************************************/
 /******/ 	// The module cache
 /******/ 	var __webpack_module_cache__ = {};
@@ -108,11 +133,14 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _ts_
 /******/ 	})();
 /******/ 	
 /************************************************************************/
-/******/ 	
-/******/ 	// startup
-/******/ 	// Load entry module and return exports
-/******/ 	// This entry module can't be inlined because the eval devtool is used.
-/******/ 	var __webpack_exports__ = __webpack_require__("./src/index.js");
-/******/ 	
+var __webpack_exports__ = {};
+// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
+(() => {
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _ts_mains_ts__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
+/* harmony import */ var _ts_mains_ts__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_ts_mains_ts__WEBPACK_IMPORTED_MODULE_0__);
+
+})();
+
 /******/ })()
 ;

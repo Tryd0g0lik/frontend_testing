@@ -1,4 +1,4 @@
-const { CrateForm } = require('./mock.ts');
+const { CrateForm } = require('./mocks/mock.ts');
 
 const elem = new CrateForm();
 elem.changeDOM();
