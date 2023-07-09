@@ -1,75 +1,45 @@
-
 // Generated using webpack-cli https://github.com/webpack/webpack-cli
 process.traceDeprecation = true;
-const path = require('path');
-const { TsconfigPathsPlugin } = require('tsconfig-paths-webpack-plugin');
-// const ImageminWebpWebpackPlugin = require('imagemin-webp-webpack-plugin');
-// const CopyPlugin = require('copy-webpack-plugin'); // https://webpack.js.org/plugins/copy-webpack-plugin/
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
-// const loader = require('mini-css-extract-plugin/types/loader');
-const isProduction = process.env.NODE_ENV; // == 'production';
+const path = require("path");
+const TsconfigPathPlugin = require("tsconfig-paths-webpack-plugin");
+const ImageminWebpWebpackPlugin = require("imagemin-webp-webpack-plugin");
+const CopyPlugin = require("copy-webpack-plugin"); // https://webpack.js.org/plugins/copy-webpack-plugin/
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+//Node:  HtmlWebpackPlugin() - расскоментировать чтоб запустить webpack.dev.js
+//Node:  HtmlWebpackPlugin() - закоментировать чтоб запустить webpack.prod.js
+
+require("webpack-dev-server");
 
 module.exports = {
-
 	mode: 'none',
 	target: 'web',
-	entry: './src/index.js',
+	entry: "./src/index.js",
+
 	output: {
-		path: path.resolve(__dirname, './dist'),
+		path: path.resolve(__dirname, "dist"),
 	},
-	devServer: {
-		open: true,
-		host: 'localhost',
-		compress: true,
-		historyApiFallback: true,
-		// static: {
-		// 	directtory: path.json(__dirname, './dist'),
-		// }
 
-	},
-	plugins: [
-		new HtmlWebpackPlugin({
-			template: './src/index.html',
-			filename: './index.html',
-			minify: {
-				collapseWhitespace: false,
-			}
-		}),
 
-		new MiniCssExtractPlugin(),
-	],
 	module: {
 		rules: [
 			{
-				test: /(\.ts)|(\.js)$/,
-				include: [
-					path.resolve(__dirname, './src/jts'),
-					path.join(__dirname, './src/jts/mocks')],
-				loader: "ts-loader",
-			},
-			// {
-			// 	test: /\.js$/i,
-			// 	include: [
-			// 		path.resolve(__dirname, './src/jsf'),
+				test: /\.ts$/i,
+				exclude: /node_modules/,
+				use: "ts-loader",
 
-			// 	],
-			// 	use: [{
-			// 		loader: 'babel-loader',
-			// 	},],
-			// },
-			{
-				test: /\.css$/i,
-				use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader'],
-				include: [path.resolve(__dirname, './src')],
-				sideEffects: true,
 			},
 			{
-				test: /\.html$/i,
+				test: /\.js$/i,
+				exclude: /node_modules/,
+				use: [
+					{ loader: "babel-loader" },
+				],
+			},
+			{
+				test: /\.html$/,
 				use: [
 					{
-						loader: 'html-loader',
+						loader: "html-loader",
 					},
 				]
 			},
@@ -82,27 +52,35 @@ module.exports = {
 			// Learn more about loaders from https://webpack.js.org/loaders/
 		],
 	},
+
+	plugins: [
+
+		new CopyPlugin({
+			patterns: [
+				{
+					from: './src/pic',
+					to: './pic'
+				}
+			]
+		}),
+
+		new TsconfigPathPlugin({
+			configFile: "./tsconfig.json"
+		}),
+		// Add your plugins here
+		// Learn more about plugins from https://webpack.js.org/configuration/plugins/
+
+		// new HtmlWebpackPlugin({
+		// 	template: "./src/index.html",
+		// 	filename: "./index.html",
+		// 	minify: {
+		// 		collapseWhitespace: false,
+		// 	}
+		// }),
+	],
+
 	resolve: {
-		extensions: ['.tsx', '.ts', '.jsx', '.js', '...'],
-
-		plugins: [new TsconfigPathsPlugin({ configFile: './tsconfig.json', }),]
+		extensions: [".tsx", ".ts", ".jsx", ".js", "..."],
 
 	},
-	optimization: {
-		minimizer: [
-			new CssMinimizerPlugin(),
-		],
-	},
-	stats: {
-		errorDetails: true,
-	}
 };
-
-// module.exports = () => {
-// 	if (isProduction) {
-// 		config.mode = 'production';
-// 	} else {
-// 		config.mode = 'development';
-// 	}
-// 	return config;
-// };
