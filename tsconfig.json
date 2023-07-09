@@ -2,7 +2,7 @@
 	"compilerOptions": {
 		/* Visit https://aka.ms/tsconfig to read more about this file */
 		/* Projects */
-		// "incremental": true,                              /* Save .tsbuildinfo files to allow for incremental compilation of projects. */
+		"incremental": true, /* Сохраните файлы с информацией о сборке .ts, чтобы обеспечить возможность поэтапной компиляции проектов.*/
 		// "composite": true,                                /* Включите ограничения, которые позволяют использовать проект TypeScript со ссылками на проекты.*/
 		// "tsBuildInfoFile": "./.tsbuildinfo",              /* Specify the path to .tsbuildinfo incremental compilation file. */
 		// "disableSourceOfProjectReferenceRedirect": true,  /* Disable preferring source files instead of declaration files when referencing composite projects. */
@@ -20,7 +20,7 @@
 		// "reactNamespace": "",                             /* Specify the object invoked for 'createElement'. This only applies when targeting 'react' JSX emit. */
 		// "noLib": true,                                    /* Disable including any library files, including the default lib.d.ts. */
 		// "useDefineForClassFields": true,                  /* Emit ECMAScript-standard-compliant class fields. */
-		// "moduleDetection": "auto",                        /* Control what method is used to detect module-format JS files. */
+				"moduleDetection": "auto", /* Контролируйте, какой метод используется для обнаружения JS-файлов в формате модуля. */
 		/* Modules */
 		"module": "commonjs", /* Укажите, какой код модуля генерируется.*/
 		"rootDir": "./src", /* Укажите корневую папку в ваших исходных файлах. Обычно './' or ./src'*/
@@ -45,18 +45,18 @@
 		// "maxNodeModuleJsDepth": 1,                        /* Specify the maximum folder depth used for checking JavaScript files from 'node_modules'. Only applicable with 'allowJs'. */
 		/* Emit */
 		// "declaration": true, /* Сгенерируйте файлы .d.ts из файлов TypeScript и JavaScript в вашем проекте.*/
-		// "declarationMap": true,                           /* Create sourcemaps for d.ts files. */
+		// "declarationMap": true,                           /* Создайте исходные карты для файлов d.ts. */
 		// "emitDeclarationOnly": true, /* Выводите только файлы d.ts, а не файлы JavaScript. */
-		"sourceMap": true, /*Создайте карту с создаваемыми файлами JavaScript. */
-		// "inlineSourceMap": true,                          /* Include sourcemap files inside the emitted JavaScript. */
+		// "sourceMap": true, /*Создайте карту с создаваемыми файлами JavaScript. */
+		"inlineSourceMap": true, /* Включите файлы sourcemap внутри создаваемого JavaScript. */
 		// "outFile": "./",                                  /* Specify a file that bundles all outputs into one JavaScript file. If 'declaration' is true, also designates a file that bundles all .d.ts output. */
-		"outDir": "./js", /* Укажите выходную папку для всех отправляемых файлов. */
-		// "removeComments": true,                           /* Удаляем все комментарии */
+		"outDir": "./src/jsf", /* Укажите выходную папку для всех отправляемых файлов. */
+		"removeComments": true, /* Удаляем все комментарии */
 		// "noEmit": false, /* Отключите отправку файлов из компиляции. */
 		// "importHelpers": true,                            /* Allow importing helper functions from tslib once per project, instead of including them per-file. */
 		// "importsNotUsedAsValues": "remove",               /* Specify emit/checking behavior for imports that are only used for types. */
 		// "downlevelIteration": true,                       /* Emit more compliant, but verbose and less performant JavaScript for iteration. */
-		// "sourceRoot": "",                                 /* Specify the root path for debuggers to find the reference source code. */
+		// "sourceRoot": "",                                 /* Укажите корневой путь для отладчиков, чтобы найти ссылочный исходный код.*/
 		// "mapRoot": "",                                    /* Specify the location where debugger should locate map files instead of generated locations. */
 		// "inlineSources": true,                            /* Include source code in the sourcemaps inside the emitted JavaScript. */
 		// "emitBOM": true,                                  /* Emit a UTF-8 Byte Order Mark (BOM) in the beginning of output files. */

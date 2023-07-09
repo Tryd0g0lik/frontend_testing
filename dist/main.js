@@ -9,7 +9,7 @@
 var CrateForm = (__webpack_require__(2).CrateForm);
 var elem = new CrateForm();
 elem.changeDOM();
-
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoibWFpbnMuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi9qdHMvbWFpbnMudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IjtBQUFRLElBQUEsU0FBUyxHQUFLLE9BQU8sQ0FBQyxpQkFBaUIsQ0FBQyxVQUEvQixDQUFnQztBQUVqRCxJQUFNLElBQUksR0FBRyxJQUFJLFNBQVMsRUFBRSxDQUFDO0FBQzdCLElBQUksQ0FBQyxTQUFTLEVBQUUsQ0FBQyJ9
 
 /***/ }),
 /* 2 */
@@ -18,7 +18,7 @@ elem.changeDOM();
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.CrateForm = void 0;
-var CrateForm = /** @class */ (function () {
+var CrateForm = (function () {
     function CrateForm() {
     }
     Object.defineProperty(CrateForm.prototype, "formHtml", {
@@ -53,8 +53,6 @@ var CrateForm = /** @class */ (function () {
         configurable: true
     });
     CrateForm.prototype.changeDOM = function () {
-        // TODO: type classElem is a string. It's variable
-        // keep the class-name from the www-page, into which will be the two html-element insert 
         var web_elem = document.querySelector('main');
         web_elem.insertAdjacentElement('beforeend', this.formHtml);
         web_elem.insertAdjacentElement('beforeend', this.picPreviewHtml);
@@ -62,7 +60,7 @@ var CrateForm = /** @class */ (function () {
     return CrateForm;
 }());
 exports.CrateForm = CrateForm;
-
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoibW9jay5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uLy4uL2p0cy9tb2Nrcy9tb2NrLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7OztBQUFBO0lBQ0M7SUFBZ0IsQ0FBQztJQUVqQixzQkFBSSwrQkFBUTthQUFaO1lBQ0MsSUFBTSxHQUFHLEdBQW1CLFFBQVEsQ0FBQyxhQUFhLENBQUMsS0FBSyxDQUFDLENBQUE7WUFDekQsR0FBRyxDQUFDLFNBQVMsQ0FBQyxHQUFHLENBQUMsVUFBVSxDQUFFLENBQUE7WUFDOUIsR0FBRyxDQUFDLFNBQVMsR0FBRyxpbEJBT1QsQ0FBQTtZQUNQLE9BQU8sR0FBRyxDQUFBO1FBQ1gsQ0FBQzs7O09BQUE7SUFFRCxzQkFBSSxxQ0FBYzthQUFsQjtZQUNDLElBQU0sR0FBRyxHQUFnQixRQUFRLENBQUMsYUFBYSxDQUFDLEtBQUssQ0FBQyxDQUFDO1lBQ3ZELEdBQUcsQ0FBQyxTQUFTLENBQUMsR0FBRyxDQUFDLE1BQU0sQ0FBRSxDQUFDO1lBRTNCLElBQU0sR0FBRyxHQUFxQixRQUFRLENBQUMsYUFBYSxDQUFDLE9BQU8sQ0FBQyxDQUFBO1lBQzdELEdBQUcsQ0FBQyxTQUFTLENBQUMsR0FBRyxDQUFDLGNBQWMsRUFBRSxVQUFVLENBQUMsQ0FBQTtZQUM3QyxHQUFHLENBQUMsRUFBRSxHQUFHLGFBQWEsQ0FBQTtZQUN0QixHQUFHLENBQUMsTUFBTSxDQUFDLEdBQUcsYUFBYSxDQUFBO1lBQzNCLEdBQUcsQ0FBQyxJQUFJLEdBQUcsTUFBTSxDQUFBO1lBQ2pCLEdBQUcsQ0FBQyxhQUFhLENBQUMsR0FBRyxvQkFBb0IsQ0FBQztZQUUxQyxJQUFNLE1BQU0sR0FBZ0IsUUFBUSxDQUFDLGFBQWEsQ0FBQyxHQUFHLENBQUMsQ0FBQTtZQUN2RCxNQUFNLENBQUMsU0FBUyxDQUFDLEdBQUcsQ0FBQyxLQUFLLEVBQUUsYUFBYSxDQUFDLENBQUE7WUFDMUMsTUFBTSxDQUFDLEVBQUUsR0FBRyxZQUFZLENBQUE7WUFDeEIsTUFBTSxDQUFDLFNBQVMsR0FBRyxtQkFBbUIsQ0FBQztZQUd2QyxHQUFHLENBQUMscUJBQXFCLENBQUMsV0FBVyxFQUFFLEdBQUcsQ0FBQyxDQUFDO1lBQzVDLEdBQUcsQ0FBQyxxQkFBcUIsQ0FBQyxXQUFXLEVBQUUsTUFBTSxDQUFDLENBQUM7WUFDL0MsT0FBTyxHQUFHLENBQUE7UUFDWCxDQUFDOzs7T0FBQTtJQUVELDZCQUFTLEdBQVQ7UUFJQyxJQUFNLFFBQVEsR0FBRyxRQUFRLENBQUMsYUFBYSxDQUFDLE1BQU0sQ0FBZ0IsQ0FBQztRQUMvRCxRQUFRLENBQUMscUJBQXFCLENBQUMsV0FBVyxFQUFFLElBQUksQ0FBQyxRQUFRLENBQUMsQ0FBQztRQUMzRCxRQUFRLENBQUMscUJBQXFCLENBQUMsV0FBVyxFQUFFLElBQUksQ0FBQyxjQUFjLENBQUMsQ0FBQztJQUVsRSxDQUFDO0lBQ0YsZ0JBQUM7QUFBRCxDQUFDLEFBaERELElBZ0RDO0FBaERZLDhCQUFTIn0=
 
 /***/ })
 /******/ 	]);
@@ -137,8 +135,8 @@ var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 (() => {
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _ts_mains_ts__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
-/* harmony import */ var _ts_mains_ts__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_ts_mains_ts__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _jts_mains_ts__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
+/* harmony import */ var _jts_mains_ts__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_jts_mains_ts__WEBPACK_IMPORTED_MODULE_0__);
 
 })();
 

@@ -43,26 +43,26 @@ module.exports = {
 	module: {
 		rules: [
 			{
-				test: /\.ts$/,
+				test: /(\.ts)|(\.js)$/,
 				include: [
-					path.resolve(__dirname, './src/ts'),
-					path.join(__dirname, './mocks/mock.ts')],
+					path.resolve(__dirname, './src/jts'),
+					path.join(__dirname, './src/jts/mocks')],
 				loader: "ts-loader",
 			},
-			{
-				test: /\.js$/i,
-				include: [
-					path.resolve(__dirname, './src/js'),
+			// {
+			// 	test: /\.js$/i,
+			// 	include: [
+			// 		path.resolve(__dirname, './src/jsf'),
 
-				],
-				use: [{
-					loader: 'babel-loader',
-				},],
-			},
+			// 	],
+			// 	use: [{
+			// 		loader: 'babel-loader',
+			// 	},],
+			// },
 			{
 				test: /\.css$/i,
 				use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader'],
-				include: [path.resolve(__dirname, './src/*.css')],
+				include: [path.resolve(__dirname, './src')],
 				sideEffects: true,
 			},
 			{
@@ -75,7 +75,7 @@ module.exports = {
 			},
 			{
 				test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/i,
-				type: 'asset',
+				type: "asset/ressource",
 			},
 
 			// Add your rules for custom modules here
