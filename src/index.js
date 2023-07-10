@@ -1,1 +1,1 @@
-import './jts/mains.ts';
+import "./jts/mains.ts";

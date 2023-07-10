@@ -1,38 +1,28 @@
-const path = require("path");
-const webpack = require("webpack");
-const { merge } = require("webpack-merge");
 const common = require("./webpack.config");
+
 const ESLintPlugin = require("eslint-webpack-plugin");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-// HtmlWebpackPlugin() - закомментирован
+const path = require('path');
+const { merge } = require("webpack-merge");
+// const { SourceMapDevToolPlugin } = require("source-map-loader");
+module.exports = merge([common,
+	{
+		mode: "development",
+		devServer: {
+			open: true,
+			host: 'localhost',
+			compress: true,
+			historyApiFallback: true,
+			// static: {
+			// 	directtory: path.json(__dirname, './dist'),
+			// }
 
-module.exports = merge(common, {
-	mode: "development",
-	devtool: 'source-map',//'cheap-module-source-map',
-
-	devServer: {
-		static: {
-			directory: path.join(__dirname, './dist'),
 		},
-		compress: true,
-		historyApiFallback: true,
-		// open: true,
-		// host: "localhost",
-		port: 8080,
-	},
-	plugins: [
-		// new webpack.LoaderOptionsPlugin(),
-		new webpack.HotModuleReplacementPlugin(),
-		new ESLintPlugin({
-			files: path.resolve(__dirname, "./src/js"),
-		}),
-		// new HtmlWebpackPlugin({
-		// 	template: "./src/index.html",
-		// 	filename: "./index.html",
-		// 	minify: {
-		// 		collapseWhitespace: false,
-		// 	}
-		// }),
-	],
-});
-// cross-env TS_NODE_PROJECT=\"tsconfig-for-webpack-config.json\"
+		plugins: [
+			// new webpack.HotModuleReplacementPlugin(),
+			new ESLintPlugin({
+				files: path.resolve(__dirname, "./src/jts"),
+			}),
+
+		]
+	}
+]);

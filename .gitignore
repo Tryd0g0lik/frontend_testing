@@ -3,3 +3,4 @@ e2e/
 pic/
 !src/
 node_modules
+dist
