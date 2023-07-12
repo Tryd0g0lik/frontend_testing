@@ -1,8 +1,11 @@
 {
-	"compilerOptions": {
+	"compilerOptions": { //Некоторые типичные параметры компилятора
+		/*
+	https://www.typescriptlang.org/docs/handbook/compiler-options-in-msbuild.html
+	*/
 		/* Visit https://aka.ms/tsconfig to read more about this file */
 		/* Projects */
-		// "incremental": true,                              /* Save .tsbuildinfo files to allow for incremental compilation of projects. */
+		"incremental": true, /* Сохраните файлы с информацией о сборке .ts, чтобы обеспечить возможность поэтапной компиляции проектов.*/
 		// "composite": true,                                /* Включите ограничения, которые позволяют использовать проект TypeScript со ссылками на проекты.*/
 		// "tsBuildInfoFile": "./.tsbuildinfo",              /* Specify the path to .tsbuildinfo incremental compilation file. */
 		// "disableSourceOfProjectReferenceRedirect": true,  /* Disable preferring source files instead of declaration files when referencing composite projects. */
@@ -20,12 +23,13 @@
 		// "reactNamespace": "",                             /* Specify the object invoked for 'createElement'. This only applies when targeting 'react' JSX emit. */
 		// "noLib": true,                                    /* Disable including any library files, including the default lib.d.ts. */
 		// "useDefineForClassFields": true,                  /* Emit ECMAScript-standard-compliant class fields. */
-		// "moduleDetection": "auto",                        /* Control what method is used to detect module-format JS files. */
+		// "moduleDetection": "auto", /* Контролируйте, какой метод используется для обнаружения JS-файлов в формате модуля. */
 		/* Modules */
 		"module": "commonjs", /* Укажите, какой код модуля генерируется.*/
-		"rootDir": "./src", /* Укажите корневую папку в ваших исходных файлах. Обычно './' or ./src'*/
+		"baseUrl": "./src", /* Укажите базовый каталог для разрешения не относительных имен модулей.*/
+		"rootDir": "./src/jts", /* Укажите корневую папку в ваших исходных файлах. Обычно './' or ./src'*/
 		// "moduleResolution": "node10",                     /* Specify how TypeScript looks up a file from a given module specifier. */
-		// "baseUrl": "./",                                  /* Укажите базовый каталог для разрешения не относительных имен модулей.*/
+		
 		// "paths": {	}, /*Укажите набор записей, которые повторно сопоставляют импорт с дополнительными местоположениями поиска.*/
 		// "rootDirs": [],                                   /* Allow multiple folders to be treated as one when resolving modules. */
 		// "typeRoots": [],                                  /* Specify multiple folders that act like './node_modules/@types'. */
@@ -45,18 +49,18 @@
 		// "maxNodeModuleJsDepth": 1,                        /* Specify the maximum folder depth used for checking JavaScript files from 'node_modules'. Only applicable with 'allowJs'. */
 		/* Emit */
 		// "declaration": true, /* Сгенерируйте файлы .d.ts из файлов TypeScript и JavaScript в вашем проекте.*/
-		// "declarationMap": true,                           /* Create sourcemaps for d.ts files. */
+		// "declarationMap": true,                           /* Создайте исходные карты для файлов d.ts. */
 		// "emitDeclarationOnly": true, /* Выводите только файлы d.ts, а не файлы JavaScript. */
 		"sourceMap": true, /*Создайте карту с создаваемыми файлами JavaScript. */
-		// "inlineSourceMap": true,                          /* Include sourcemap files inside the emitted JavaScript. */
-		// "outFile": "./",                                  /* Specify a file that bundles all outputs into one JavaScript file. If 'declaration' is true, also designates a file that bundles all .d.ts output. */
-		"outDir": "./src/js", /* Укажите выходную папку для всех отправляемых файлов. */
-		// "removeComments": true,                           /* Удаляем все комментарии */
-		// "noEmit": false, /* Отключите отправку файлов из компиляции. */
+		// "inlineSourceMap": true, /* Включите файлы sourcemap внутри создаваемого JavaScript. */
+		"outDir": "directory", /* Укажите выходную папку для всех отправляемых файлов. */
+		// "outFile": "./src/fjs/visa.js", /* Specify a file that bundles all outputs into one JavaScript file. If 'declaration' is true, also designates a file that bundles all .d.ts output. */
+		"removeComments": true, /* Удаляем все комментарии */
+		// "noEmit": true, /* Отключите отправку файлов из компиляции. */
 		// "importHelpers": true,                            /* Allow importing helper functions from tslib once per project, instead of including them per-file. */
 		// "importsNotUsedAsValues": "remove",               /* Specify emit/checking behavior for imports that are only used for types. */
 		// "downlevelIteration": true,                       /* Emit more compliant, but verbose and less performant JavaScript for iteration. */
-		// "sourceRoot": "",                                 /* Specify the root path for debuggers to find the reference source code. */
+		// "sourceRoot": "",                                 /* Укажите корневой путь для отладчиков, чтобы найти ссылочный исходный код.*/
 		// "mapRoot": "",                                    /* Specify the location where debugger should locate map files instead of generated locations. */
 		// "inlineSources": true,                            /* Include source code in the sourcemaps inside the emitted JavaScript. */
 		// "emitBOM": true,                                  /* Emit a UTF-8 Byte Order Mark (BOM) in the beginning of output files. */
@@ -77,7 +81,7 @@
 		/* Type Checking */
 		"strict": true, /* Enable all strict type-checking options. */
 		"noImplicitAny": true, /* Включите отчеты об ошибках для выражений и объявлений с подразумеваемым типом "any". */
-		// "strictNullChecks": true,                         /* When type checking, take into account 'null' and 'undefined'. */
+		// "strictNullChecks": true,                         /* При проверке типа учитывайте "null" и "undefined".*/
 		// "strictFunctionTypes": true,                      /* When assigning functions, check to ensure parameters and the return values are subtype-compatible. */
 		// "strictBindCallApply": true,                      /* Check that the arguments for 'bind', 'call', and 'apply' methods match the original function. */
 		// "strictPropertyInitialization": true,             /* Check for class properties that are declared but not set in the constructor. */
@@ -97,5 +101,41 @@
 		/* Completeness */
 		// "skipDefaultLibCheck": true,                      /* Skip type checking .d.ts files that are included with TypeScript. */
 		"skipLibCheck": true /* Skip type checking all .d.ts files. */
-	}
+	},
+	"exclude": [
+		"node_modules",
+		"directory"
+	],
+	// "file": [
+	// 	"./src/index.js",
+	// ],
+	/* "files": [ // файлы не должы быть найдены
+			https: //www.typescriptlang.org/tsconfig#files
+		],
+		*/
+	// "watchOptions": { //НОВОЕ: Опции для просмотра файлов / каталогов
+	/*
+		https://www.typescriptlang.org/docs/handbook/configuring-watch.html#configuring-file-watching-using-a-tsconfigjson
+		*/
+	/* Используйте собственные события файловой системы для файлов и каталогов
+		"watchFile": "useFsEvents",
+		"watchDirectory": "useFsEvents",
+		*/
+	/* Чаще опрашивать файлы на предмет обновлений
+				когда они часто обновляются.
+		"fallbackPolling": "dynamicPriority",
+		*/
+	/* Не объединяйте уведомления о просмотре
+		"synchronousWatchDirectory": true,
+		*/
+	/*	Наконец, две дополнительные настройки для уменьшения количества возможных
+				файлы для отслеживания работы из этих каталогов */
+	// "excludeDirectories": [
+	// 	"**/node_modules",
+	// 	"_build"
+	// ],
+	// "excludeFiles": [
+	// 	"build/fileWhichChangesOften.ts"
+	// ]
+	// }
 }

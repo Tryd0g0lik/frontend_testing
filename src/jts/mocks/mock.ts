@@ -12,7 +12,6 @@ export class CrateForm {
 				<li><span class="card jcb cdisabled" title="JCB">JCB</span></li>
 				<li><span class="card diners_club cdisabled" title="Diners Club">Diners Club</span></li>
 			</ul>`
-		// let elem: any = div.cloneNode(true);
 		return div
 	}
 
