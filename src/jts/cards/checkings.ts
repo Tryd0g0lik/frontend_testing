@@ -77,7 +77,7 @@ export class CheckingCards {
 }
 
 
-export class Luna {
+export class Luhn {
 	manual: [string, number, number];
 	card_num: string;
 	constructor(card_manual: [string, number, number] = ['', 0, 0], card_num: string) {
@@ -104,17 +104,22 @@ export class Luna {
 
 			for (let i = 0; i < Array(arr)[0].length; i = i + 2) {
 				let num = Number(Array(arr)[0][i]) * 2;
-				int += (String(num).length > 2 ? num / 2 : num);
+				console.log('4.1 - num: ', num)
 
+				if (num >= 10) {
+					const symb1 = Number(String(num)[0]);
+					const symb2 = Number(String(num)[1]);
+					int = int + (symb1 + symb2);
+				}
+				else if (num < 10) {
+					int = int + num;
+				};
 			}
 
-			for (let i = 1; i < Array(arr)[0].length; i++) {
-				let num = (i % 2) !== 0 ? Number(Array(arr)[0][i]) : 0;
-				int += num
+			for (let i = 1; i < Array(arr)[0].length; i = i + 2)int += Number(Array(arr)[0][i]);
 
-			}
-			console.log("====>> 3", int)
-			return (int + 1) % 10 === 0 ? true : false;
+			console.log("5 - Luna result: ", int)
+			return (int) % 10 === 0 ? true : false;
 		} 
 		return false
 	}
