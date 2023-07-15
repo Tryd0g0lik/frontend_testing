@@ -1,13 +1,13 @@
 
-export class NumberCardGet {
+export class getNumberCard {
 	names: any;
-	cardsNum: string | number;
+	cardsNumOfUser: string | number;
 	constructor(num: string | number) {
 		/*
-		TODO: string or number geting from the bank's card. Got the bakn card number we checking the bank card type 
+		TODO: string or number geting from the bank's card. Got the bank's card number from user we checking the bank's card type 
 		:atributs bank: It's string or number geting from the bank's card.
 		*/
-		this.cardsNum = num;
+		this.cardsNumOfUser = num;
 		/*
 		 card's template is
 			 'brand' : {'first integer of card's number' : [max count integers of the card's number]}
@@ -37,9 +37,9 @@ export class NumberCardGet {
 		let cardNum_len!: number;
 		let cardNum: number;
 
-		cardNum_len = String(this.cardsNum).replace(' ', '').length;
+		cardNum_len = String(this.cardsNumOfUser).replace(' ', '').length;
 		if (cardNum_len > 0) {
-			cardNum = Number(String(this.cardsNum)[0]);
+			cardNum = Number(String(this.cardsNumOfUser)[0]);
 
 		} else {
 			const err = new Error("You no inserted a bak's card number, maybe. Please insert/write the number from a bank's card");
@@ -50,7 +50,7 @@ export class NumberCardGet {
 		return cardNum
 	}
 
-	get cards(): any[] {
+	get cardsManuals(): any[] {
 		/* 
 			Получив первые две цифры из пользовательского номера карты
 				получаем список карт (с максимальной длиной номера карты )
@@ -63,7 +63,7 @@ export class NumberCardGet {
 		for (const elem in this.names) list_elem.push(elem);
 		Array.from(list_elem).forEach((brand) => {
 			/*
-				we searching names (brands bank's kard) where 'this.names["brand"].keys() === this.cardsNum'
+				we searching names (brands bank's kard) where 'this.names["brand"].keys() === this.cardsNumOfUser'
 					This a searched numbers saveing to Map();
 			*/
 
@@ -97,6 +97,6 @@ export class NumberCardGet {
 
 
 	startWork() {
-		return this.cards;
+		return this.cardsManuals;
 	}
 }
