@@ -59,8 +59,8 @@ export class CheckingCards {
 	startWork(num: string): [string, number, number] {
 		/*	
 			TODO:
-			:atrib num: card's number
-			returns:[<string>, number, number], it's us spearing that we made all true alse ['', 0, 0] :-(
+			:atrib num: user card's number
+			returns:[<string-brand-bank's-card It's manual>, number, number], it's us spearing that we made all true alse ['', 0, 0] :-(
 		*/
 		// console.log('3.1 - num: ', num)
 		for (let i = 0; i < this.cards.length; i++) {
