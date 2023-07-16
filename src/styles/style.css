@@ -13,6 +13,9 @@
 	float: left;
 }
 
+.card.world {
+	background-image: url(../pic/card-world.gif);
+}
 .card.visa {
 	background-image: url(../pic/card-visa.gif);
 }

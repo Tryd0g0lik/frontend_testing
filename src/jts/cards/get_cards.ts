@@ -13,7 +13,6 @@ export class getNumberCard {
 			 'brand' : {'first integer of card's number' : [max count integers of the card's number]}
 		*/
 		this.names = {
-			'Яндекс Деньги': { '5': [16] },
 			'мир': { '2': [12, 16] },
 			'diners club': { '3': [30, 36, 38] },
 			'jcb international': { '3': [31, 35] },
