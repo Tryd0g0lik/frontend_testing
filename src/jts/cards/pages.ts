@@ -59,15 +59,22 @@ export class Pages {
 	}
 
 	cleaningPage(): void {
+		/**reset the all changes */
 		const dom_ul = document.querySelector('p[style="color:red"]') as HTMLElement;
-		console.log('6.2 - Clean dom_ul: ', dom_ul)
 		dom_ul !== undefined && dom_ul !== null ? dom_ul.remove() : null;
+
+		const dom_liAll = document.querySelectorAll('.cards > li');
+		for (let i = 0; i < dom_liAll.length; i++) {
+			const span = dom_liAll[i].querySelector('span') as HTMLElement;
+			span.classList.contains('cdisabled') === false ? span.classList.add('cdisabled') : null;
+
+		}
+
 	}
 
 	startWork(): void {
 		console.log('6.0 - checking')
 		this.resp_boolean === true ? this.chengeStyle() : null;
-
 	}
 
 }

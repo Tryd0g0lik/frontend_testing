@@ -7,7 +7,7 @@ export class CrateForm {
 		div.innerHTML = `<ul class="cards list-unstyled">
 				<li><span class="card world cdisabled" title="World">World</span></li>
 				<li><span class="card visa cdisabled" title="Visa">Visa</span></li>
-				<li><span class="card master cdisabled" title="Mastercard">Mastercard</span></li>
+				<li><span class="card master " title="Mastercard">Mastercard</span></li>
 				<li><span class="card amex cdisabled" title="American Express">American Express</span></li>
 				<li><span class="card discover cdisabled" title="Discover">Discover</span></li>
 				<li><span class="card jcb cdisabled" title="JCB">JCB</span></li>
