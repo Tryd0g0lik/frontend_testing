@@ -100,14 +100,17 @@ export class Forms {
 		this.callback = callback;
 	}
 
-	get getValueOfField(): string {
+	get getValueOfField(): string | void {
 		/**
 		 * TODO: Get the string of the form's value,
-		 * return string 
+		 * return string  2202201302350075
 		 */
 		const number_card_field = document.querySelector('#form [name="card_number"]') as HTMLFormElement;
 		const number_card = number_card_field['value'] as string;
-		return number_card
+
+		const reg = new RegExp('[0-9 ]{12,72}');
+		if (reg.test(number_card)) return number_card
+		return '000000000000'
 	}
 
 	startWork(): void {
@@ -116,13 +119,23 @@ export class Forms {
 		const source_event = () => {
 			const number_card = get_form.querySelector('[name="card_number"]') as HTMLFormElement;
 
-			number_card.addEventListener('keydown', (e: any) => {
+			number_card.addEventListener('keyup', (e: any) => {
 				/**
 				 * Как подвесить прослушку на собыите - нажатие клавиши Enter в поле input?
 				 */
-				let keyCode = e.code || e.key;
-				keyCode === 'Enter' || keyCode === 'NumpadEnter' ? e.preventDefault : null;
+				e.stopPropagation();
+
+				// debugger;
+
+				let keyCode = e.key;
+				keyCode === "Enter" || keyCode === "NumpadEnter" ? e.preventDefault : null;
+
+				// debugger
 			});
+
+
+
+
 			number_card.addEventListener('input', (e): any => {
 				e.preventDefault;
 				e.stopPropagation();
@@ -138,7 +151,7 @@ export class Forms {
 			number_card.addEventListener('blur', (e: Event): any => {
 				e.preventDefault;
 				e.stopPropagation;
-				return this.callback(this.getValueOfField);
+				// return this.callback(this.getValueOfField);
 			});
 
 			const get_buttom = get_form.querySelector('#submitform') as HTMLFormElement;
