@@ -1,97 +1,122 @@
+/**
+ * There i do two checjings for a user nuber card.
+ * First checking it's some checklist for a user number wich has the personal rules from the get_cards.ts page. 
+ * It's rule name a 'CheckingCards'.
+ * Second rules it's a popular Luhna algorotm.
+ */
+const _ = require('underscore.string');
 
-export class NumberCardGenerate {
-	names: any;
-	cardsNum: string | number;
-	constructor(num: string | number) {
+export class CheckingCards {
+	cards: any;
+	singleCard: [string, number, number] = ['', 0, 0];
+	constructor(cards: any[]) {
+		this.cards = cards;
+
+	}
+
+	get getOneCards(): [string, number, number[]] {
 		/*
-		TODO: string or number geting from the bank's card. Got the bakn card number we checking the bank card type 
-		:atributs bank: It's string or number geting from the bank's card.
+		*	TODO: searching a name bank's card, first integer and a max count  integer from the card's number
 		*/
-		this.cardsNum = num;
+		let n: string;
+		let arr_ofOne_card_manual: any = []; //[string, number[]]
+		let elem: any[] = [];
+		for (let elem_ of this.cards) {
+			elem = elem_
+			break
+		}
+
+		n = elem[0]
+		for (const [key, val] of Object.entries(elem[1])) {
+			arr_ofOne_card_manual.push(n) // bank's name 
+			arr_ofOne_card_manual.push(Number(key)) // first integer of the card. It's a long number
+			arr_ofOne_card_manual.push(Array(val)); // This's a long number of the card
+		}
+		this.cards.shift();
+		return arr_ofOne_card_manual
+	}
+
+	set setIntegOfCardNum(num_: string) {
 		/*
-		 card's template is
-			 'brand' : {'first integer of card's number' : [max count integers of the card's number]}
-		*/
-		this.names = {
-			'мир': { '2': [12,] },
-			'diners club': { '3': [30, 36, 38] },
-			'jcb international': { '3': [31, 35] },
-			'American Express': { '3': [34, 37] },
-			'visa': { '4': [] },
-			'mastercard': { '5': [51, 52, 53, 54, 55] },
-			'maestro': {
-				'5': [50, 56, 57, 58],
-				'6': [63, 67]
-			},
-			'china unionPay': { '6': [62,] },
-			'discover': { '6': [60,] },
-			'uek': { '7': [] }
+	 * TODO: return tru if a symbol count === max count integers from the card's number  or false.
+	 * This a max-count  we geting from the 'getOneCards'.
+	 * :atrib num_: it's a card's number/
+	*/
+		let el = this.getOneCards;
+		console.log("el: ", el)
+		const elem = Array(el[2][0])[0];
+		console.log("elem: ", elem)
+		for (let i = 0; i < elem.length; i++) {
+			if (String(num_).length === elem[i]) {
+
+				this.singleCard = [el[0], el[1], elem[i]]
+				console.log("sCard--------: ", [el[0], el[1], elem[i]])
+				return
+			}
 		}
 	}
 
-	get integerCards(): number {
-		/*
-			TODO: card's number geting.
-			Return the first integers of номера.
+	startWork(num: string): [string, number, number] {
+		/*	
+		*	TODO:
+		*	:atrib num: user card's number
+		*	returns:[<string-brand-bank's-card It's manual>, number, number], it's us spearing that we made all true alse ['', 0, 0] :-(
 		*/
-		let cardNum_len!: number;
-		let cardNum: number;
+		for (let i = 0; i < this.cards.length; i++) {
+			this.setIntegOfCardNum = num;
+			if (this.singleCard[0].length !== 0) this.cards = [];
+		};
 
-		cardNum_len = String(this.cardsNum).replace(' ', '').length;
-		if (cardNum_len > 0) {
-			cardNum = Number(String(this.cardsNum)[0]);
+		const sCard = this.singleCard;
+		return sCard
+	}
+}
 
-		} else {
-			const err = new Error("You no inserted a bak's card number, maybe. Please insert/write the number from a bank's card");
-			err.name = 'Error integerCards 01';
-			console.error(err.name, err.message);
-			return 0
-		}
-		return cardNum
+
+export class Luhn {
+	manual: [string, number, number];
+	card_num: string;
+	constructor(card_manual: [string, number, number] = ['', 0, 0], card_num: string) {
+		/*
+		*	TODO: Card's number checking by the Luna-algorithm
+		*	:atrib card_manual: this's "[card-name, first-integer, symbol count  of number card  ]"
+		*	:atrib card_num: this's card's number.
+		*	returns: true or false
+		*/
+		this.manual = card_manual;
+		this.card_num = card_num;
 	}
 
-	get cards(): any[] {
-		/* 
-			Получив первые две цифры из пользовательского номера карты
-				получаем список карт (с максимальной длиной номера карты )
-		*/
+	get cardGet() {
+		/*Прошел алгоритмя луна или нет */
 
-		let list_elem: string[] = [];
-		let map = new Map();
+		const new_manual = Array(this.manual)[0].slice();
+		const num = ([this.card_num].slice())[0];
 
-		// geting names (brands) bank's cards. It's keys from the 'this.names'
-		for (const elem in this.names) list_elem.push(elem);
-		Array.from(list_elem).forEach((brand) => {
-			/*
-				we searching names (brands bank's kard) where 'this.names["brand"].keys() === this.cardsNum'
-					This a searched numbers saveing to Map();
-			*/
+		if (String(new_manual[0]).length > 0) {
+			const arr = _.chop(num, 1);
+			let int = 0;
 
-			// making a simple copy of the data
-			const integer_cards = [this.integerCards].filter((integ) => integ > 0 ? integ : 0);
-			const strFirst_integ_OfNumberCard: string[] = [];
-			const strMaxCount_integ_OfNumberCard: number[] = [];
+			for (let i = 0; i < Array(arr)[0].length; i = i + 2) {
+				let num = Number(Array(arr)[0][i]) * 2;
 
-			for (let str of Object.keys(this.names[brand])) strFirst_integ_OfNumberCard.push(str);
-			for (let str of Object.keys(this.names[brand])) strMaxCount_integ_OfNumberCard.push(this.names[brand][str]);
-
-			if (strFirst_integ_OfNumberCard.length > 0) {
-				if ((strFirst_integ_OfNumberCard).length < 2
-					&& Number(strFirst_integ_OfNumberCard[0]) === integer_cards[0]) {
-					map.set(brand, this.names[brand]);
-
-				} else if ((strFirst_integ_OfNumberCard).length > 1) {
-					if (Number(strFirst_integ_OfNumberCard[0]) === integer_cards[0]) {
-						for (const ind in Object.keys(this.names[brand])) map.set(brand, this.names[brand][ind])
-					}
+				if (num >= 10) {
+					const symb1 = Number(String(num)[0]);
+					const symb2 = Number(String(num)[1]);
+					int = int + (symb1 + symb2);
 				}
-			} else { null }
+				else if (num < 10) {
+					int = int + num;
+				};
+			}
 
-		});
-		return [0]
+			for (let i = 1; i < Array(arr)[0].length; i = i + 2)int += Number(Array(arr)[0][i]);
+			return (int) % 10 === 0 ? true : false;
+		} 
+		return false
 	}
 
 	startWork() {
-		return this.cards;
+		return this.cardGet
 	}
 }

@@ -41,7 +41,9 @@ module.exports = {
 				}
 			]
 		}),
-		new MiniCssExtractPlugin(),
+		new MiniCssExtractPlugin(
+			{ filename: '[name].css', }
+		),
 		new webpack.SourceMapDevToolPlugin({
 			filename: '[file].map[query]',
 			exclude: "./src/index.js"
@@ -69,9 +71,15 @@ module.exports = {
 			},
 			{
 				test: /\.css$/i,
-				use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader'],
-				include: [path.resolve(__dirname, './src')],
 				sideEffects: true,
+				include: [
+					path.resolve(__dirname, './src/styles'),],
+				use: [MiniCssExtractPlugin.loader,
+					'css-loader',
+					'postcss-loader',
+				],
+
+
 			},
 			{
 				test: /\.html$/i,
@@ -83,7 +91,7 @@ module.exports = {
 			},
 			{
 				test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/i,
-				type: "asset/ressource",
+				type: "asset",
 			},
 
 			// Add your rules for custom modules here

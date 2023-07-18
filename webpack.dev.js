@@ -4,7 +4,7 @@ const ESLintPlugin = require("eslint-webpack-plugin");
 const path = require('path');
 const { merge } = require("webpack-merge");
 // const { SourceMapDevToolPlugin } = require("source-map-loader");
-module.exports = merge([common,
+module.exports = merge(common,
 	{
 		mode: "development",
 		devServer: {
@@ -25,4 +25,4 @@ module.exports = merge([common,
 
 		]
 	}
-]);
+);
