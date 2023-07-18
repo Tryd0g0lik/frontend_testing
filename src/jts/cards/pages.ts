@@ -110,6 +110,18 @@ export class Forms {
 
 		const reg = new RegExp('[0-9 ]{12,72}');
 		if (reg.test(number_card)) return number_card
+		else if (number_card.length > 72 || number_card.length < 12) {
+			const err = new Error();
+			err.message = "Ckeck length the bank's  number card. Length betwen 12-72 intergers"
+			err.name = 'DataForm'
+			console.error(err.name, err.message);
+		}
+		else {
+			const err = new Error();
+			err.message = "Check the data type. Input only integers"
+			err.name = 'DataTypeForm'
+			console.error(err.name, err.message);
+		}
 		return '000000000000'
 	}
 
