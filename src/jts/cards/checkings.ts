@@ -1,4 +1,11 @@
+/**
+ * There i do two checjings for a user nuber card.
+ * First checking it's some checklist for a user number wich has the personal rules from the get_cards.ts page. 
+ * It's rule name a 'CheckingCards'.
+ * Second rules it's a popular Luhna algorotm.
+ */
 const _ = require('underscore.string');
+
 export class CheckingCards {
 	cards: any;
 	singleCard: [string, number, number] = ['', 0, 0];

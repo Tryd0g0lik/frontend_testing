@@ -1,3 +1,7 @@
+/**
+ * Class Page is a regulates for a style views form.
+ * Class Form has a rules for a true workin form.
+ */
 export class Pages {
 	manual: [string, number, number];
 	number_card: number;

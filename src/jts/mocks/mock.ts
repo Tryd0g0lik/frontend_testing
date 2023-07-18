@@ -1,3 +1,6 @@
+/**
+ * TODO: Only making form in web-page
+ */
 export class CrateForm {
 	constructor() { }
 

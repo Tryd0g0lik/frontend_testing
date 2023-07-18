@@ -1,4 +1,8 @@
 
+/**
+ * TODO: There,  function got the numbre from a user bank's card and determine a view card.
+ * Basic views cards has been saved into database. 'this.names' it's db.
+ */
 export class getNumberCard {
 	names: any;
 	cardsNumOfUser: string;
@@ -11,14 +15,15 @@ export class getNumberCard {
 		/**
 		 * card's template is
 		 * 'brand' : {'first integer of card's number' : [max count integers of the card's number]}
+		 *5437419573427824
 		*/
 		this.names = {
 			'мир': { '2': [12, 16] },
 			'diners club': { '3': [30, 36, 38] },
 			'jcb international': { '3': [31, 35] },
 			'American Express': { '3': [34, 37] },
-			'visa': { '4': [16,] },
-			'mastercard': { '5': [51, 52, 53, 54, 55] },
+			'visa': { '4': [16, 19] },
+			'mastercard': { '5': [16, 51, 52, 53, 54, 55] },
 			'maestro': {
 				'5': [50, 56, 57, 58],
 				'6': [63, 67]
