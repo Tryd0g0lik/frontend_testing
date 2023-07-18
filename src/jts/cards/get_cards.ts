@@ -1,16 +1,16 @@
 
 export class getNumberCard {
 	names: any;
-	cardsNumOfUser: string | number;
-	constructor(num: string | number) {
-		/*
-		TODO: string or number geting from the bank's card. Got the bank's card number from user we checking the bank's card type 
-		:atributs bank: It's string or number geting from the bank's card.
+	cardsNumOfUser: string;
+	constructor(num: string) {
+		/**
+		 * TODO: string or number geting from the bank's card. Got the bank's card number from user we checking the bank's card type 
+		 * :atributs bank: It's string or number geting from the bank's card.
 		*/
 		this.cardsNumOfUser = num;
-		/*
-		 card's template is
-			 'brand' : {'first integer of card's number' : [max count integers of the card's number]}
+		/**
+		 * card's template is
+		 * 'brand' : {'first integer of card's number' : [max count integers of the card's number]}
 		*/
 		this.names = {
 			'мир': { '2': [12, 16] },
@@ -30,9 +30,9 @@ export class getNumberCard {
 	}
 
 	get integerCards(): number {
-		/*
-			TODO: card's number geting.
-			Return the first integers of номера.
+		/**
+		 * TODO: card's number geting.
+		 * Return the first integers of номера.
 		*/
 		let cardNum_len!: number;
 		let cardNum: number;
@@ -52,8 +52,8 @@ export class getNumberCard {
 
 	get cardsManuals(): any[] {
 		/* 
-			Получив первые две цифры из пользовательского номера карты
-				получаем список карт (с максимальной длиной номера карты )
+		*	Получив первые две цифры из пользовательского номера карты
+		*		получаем список карт (с максимальной длиной номера карты )
 		*/
 
 		let list_elem: string[] = [];
@@ -63,8 +63,8 @@ export class getNumberCard {
 		for (const elem in this.names) list_elem.push(elem);
 		Array.from(list_elem).forEach((brand) => {
 			/*
-				we searching names (brands bank's kard) where 'this.names["brand"].keys() === this.cardsNumOfUser'
-					This a searched numbers saveing to Map();
+			*	we searching names (brands bank's kard) where 'this.names["brand"].keys() === this.cardsNumOfUser'
+			*		This a searched numbers saveing to Map();
 			*/
 
 			// making a simple copy of the data

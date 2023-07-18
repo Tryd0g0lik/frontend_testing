@@ -7,11 +7,11 @@ export class Pages {
 		resp_boolean: boolean = false
 	) {
 		/*
-			TODO:
-			:atribs card_manual: this's "[card-name, first-integer, symbol count  of number card  ]"
-			:atribs number_card: this's card's number from user bank's card.
-			:atribs resp_boolean: 'true' means the bank's card number has been passed the all checs.
-			returns void. But this's class changes a view display the page style
+		*	TODO:  This's class do changes a display page's view.
+		*	:atribs card_manual: this's "[card-name, first-integer, symbol count  of number card  ]"
+		*	:atribs number_card: this's card's number from user bank's card.
+		*	:atribs resp_boolean: 'true' means the bank's card number has been passed the all checs.
+		*	returns void.
 		*/
 		this.manual = card_manual;
 		this.number_card = number_card;
@@ -21,6 +21,12 @@ export class Pages {
 	}
 
 	get getBrandCard(): string {
+		/**
+		 * TODO: return an array has been template [string, number, number]. 
+		 * If returning ['', 0, 0] - look in line 'ComplectDataOfPagesClass' from the consolle. 
+		 * If return 
+		 * [<name/bran user bank's card>, <first integer of user card>, <count all integers from the user number card>]. It's properties user's card for a bank.
+		 */
 		if (this.manual[0].length === 0) {
 			const err = new Error();
 			err.message = "Not: What's so wrong in the 'this.manual' property. Look the 'chengeStyle' method from the 'Page' class";
@@ -33,9 +39,13 @@ export class Pages {
 	}
 
 	chengeStyle(): void {
+		/**
+		 * TODO: changing the display page views
+		 * return void.
+		 */
 		const brand_bank_card = this.getBrandCard.slice()
 		let selector: string = '';
-		console.log('6 - style: ', brand_bank_card)
+
 		if (brand_bank_card === 'diners club') selector = 'li span.card.' + 'diners_club'
 		else if (brand_bank_card === 'мир') selector = 'li span.card.' + 'world'
 		else if (brand_bank_card === 'jcb international') selector = 'li span.card.' + 'jcb'
@@ -43,7 +53,7 @@ export class Pages {
 		else if (brand_bank_card === 'visa') selector = 'li span.card.' + 'visa'
 		else if (brand_bank_card === 'mastercard') selector = 'li span.card.' + 'master'
 		else if (brand_bank_card === 'maestro') selector = 'li span.card.' + 'maestro'
-		else if (brand_bank_card === 'china unionPay') selector = 'li span.card.' + 'china'
+		else if (brand_bank_card === 'china unionPay') selector = 'li span.card.' + 'china'	
 		else if (brand_bank_card === 'discover') selector = 'li span.card.' + 'discover'
 		else {
 			const dom_ul = document.querySelector('ul.cards') as HTMLElement;
@@ -59,7 +69,9 @@ export class Pages {
 	}
 
 	cleaningPage(): void {
-		/**reset the all changes */
+		/**
+		 * TODO: reset the all changes
+		*/
 		const dom_ul = document.querySelector('p[style="color:red"]') as HTMLElement;
 		dom_ul !== undefined && dom_ul !== null ? dom_ul.remove() : null;
 
@@ -73,8 +85,73 @@ export class Pages {
 	}
 
 	startWork(): void {
-		console.log('6.0 - checking')
 		this.resp_boolean === true ? this.chengeStyle() : null;
 	}
 
 }
+
+export class Forms {
+	callback: Function;
+	constructor(callback: Function) {
+		/**
+		 * TODO: class wich on input geting the callback:function. This's callback  geting geting the string  and start work
+		 * return void
+		 */
+		this.callback = callback;
+	}
+
+	get getValueOfField(): string {
+		/**
+		 * TODO: Get the string of the form's value,
+		 * return string 
+		 */
+		const number_card_field = document.querySelector('#form [name="card_number"]') as HTMLFormElement;
+		const number_card = number_card_field['value'] as string;
+		return number_card
+	}
+
+	startWork(): void {
+		const get_form = document.querySelector('#form') as HTMLFormElement;
+		const resp: string = '';
+		const source_event = () => {
+			const number_card = get_form.querySelector('[name="card_number"]') as HTMLFormElement;
+
+			number_card.addEventListener('keydown', (e: any) => {
+				/**
+				 * Как подвесить прослушку на собыите - нажатие клавиши Enter в поле input?
+				 */
+				let keyCode = e.code || e.key;
+				keyCode === 'Enter' || keyCode === 'NumpadEnter' ? e.preventDefault : null;
+			});
+			number_card.addEventListener('input', (e): any => {
+				e.preventDefault;
+				e.stopPropagation();
+				// return this.callback(this.getValueOfField);
+			});
+
+			number_card.addEventListener('click', (e): any => {
+				e.preventDefault;
+				e.stopPropagation();
+				// return this.callback(this.getValueOfField);
+			});
+
+			number_card.addEventListener('blur', (e: Event): any => {
+				e.preventDefault;
+				e.stopPropagation;
+				return this.callback(this.getValueOfField);
+			});
+
+			const get_buttom = get_form.querySelector('#submitform') as HTMLFormElement;
+			get_buttom.addEventListener('click', (e): any => {
+				e.preventDefault;
+				e.stopPropagation();
+				return this.callback(this.getValueOfField);
+			});
+
+
+		}
+
+		return source_event();
+	}
+}
+
