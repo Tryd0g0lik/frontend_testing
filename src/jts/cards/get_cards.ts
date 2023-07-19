@@ -90,18 +90,30 @@ export class getNumberCard {
 						for (const ind in Object.keys(this.names[brand])) map.set(brand, this.names[brand][ind])
 					}
 				} 
-			} else {
-				const dom_ul = document.querySelector('ul.cards') as HTMLElement;
-				dom_ul.insertAdjacentHTML('afterend', '<p style="color:red">what is so in wrong? Look the "get_cards.ts" page to the "cardsManuals" method</p>');
 			}
+			// else {
+			// 	const dom_ul = document.querySelector('ul.cards') as HTMLElement;
+			// 	dom_ul.insertAdjacentHTML('afterend', '<p style="color:red">what is so in wrong? Look the "get_cards.ts" page to the "cardsManuals" method</p>');
+			// }
 
 		});
 		let resul: any[] = [];
 		// let resp : [string, { key: number, value: number[] }]
 		let resp: any;
+		const form = document.querySelector('.form') as any;
 
+		// debugger;
 		if (map.size > 0) {			
+
 			for (resp of Array.from(map.entries())) resul.push(resp);
+		} else {
+			const err = new Error();
+			err.message = "This number can't faound by the monual. 'cardsManuals' method from the get_cards.ts"
+			err.name = 'CardsManualsError'
+
+			form.insertAdjacentHTML('beforeEnd', `<p style="color:red">${err}: ${err.message}</p>`);
+			console.error(err.name, err.message);
+			stop
 		}
 		return resul
 
