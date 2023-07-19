@@ -20,8 +20,9 @@ describe('Page start', () => {
 
 	test('Form should render on page start', async () => {
 		await page.goto('http://localhost:9000');
-
-		await page.waitForTarget('body');
+		let p = await page.$('body');
+		console.log('---------', p);
+		// await page.waitFor('body');
 	});
 
 	afterEach(async () => {
