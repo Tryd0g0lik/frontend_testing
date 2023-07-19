@@ -99,7 +99,7 @@ export class getNumberCard {
 		let resul: any[] = [];
 		// let resp : [string, { key: number, value: number[] }]
 		let resp: any;
-		console.log(map.size === 0, '----------------')
+
 		if (map.size > 0) {			
 			for (resp of Array.from(map.entries())) resul.push(resp);
 		}

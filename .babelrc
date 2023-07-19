@@ -6,7 +6,11 @@
 		"test": {
 			"presets": [
 				[
-					"@babel/plugin-transform-modules-commonjs",
+					{
+						"plugins": [
+							"@babel/plugin-transform-modules-commonjs"
+						]
+					},
 					{
 						"targets": {
 							"node": "current"
@@ -15,17 +19,17 @@
 				]
 			]
 		}
-	},
-	"presets": [
-		[
-			"@babel/preset-env",
-			{
-			"useBuiltIns": "usage",
-			"corejs": 3,
-			"targets": {
-				"node": "18.14.1"
-			}
-		}
-	]
-	]
+	}
+	// "presets": [
+	// 	[
+	// 		"@babel/preset-env",
+	// 		{
+	// 		"useBuiltIns": "usage",
+	// 		"corejs": 3,
+	// 		"targets": {
+	// 			"node": "18.14.1"
+	// 		}
+	// 	}
+	// ]
+	// ]
 }
