@@ -89,15 +89,22 @@ export class getNumberCard {
 					if (Number(strFirst_integ_OfNumberCard[0]) === integer_cards[0]) {
 						for (const ind in Object.keys(this.names[brand])) map.set(brand, this.names[brand][ind])
 					}
-				}
-			} else { null }
+				} 
+			} else {
+				const dom_ul = document.querySelector('ul.cards') as HTMLElement;
+				dom_ul.insertAdjacentHTML('afterend', '<p style="color:red">what is so in wrong? Look the "get_cards.ts" page to the "cardsManuals" method</p>');
+			}
 
 		});
 		let resul: any[] = [];
 		// let resp : [string, { key: number, value: number[] }]
 		let resp: any;
-		for (resp of Array.from(map.entries())) resul.push(resp);
+		console.log(map.size === 0, '----------------')
+		if (map.size > 0) {			
+			for (resp of Array.from(map.entries())) resul.push(resp);
+		}
 		return resul
+
 	}
 
 

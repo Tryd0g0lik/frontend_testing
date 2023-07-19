@@ -28,6 +28,7 @@ function trash(str: string) {
 	const manual = check.startWork(str); //return [<string-brand-bank's-card It's manual>, number, number]
 
 	const luhn = new Luhn(manual, str); /* Luhna algoritm */
+	luhn.cleaningPage();
 	const resp_boolean = luhn.startWork(); /* return ther tru or false.
 	If got a true be means - User insert a mien bank's card number 
 	wich a number passed the Luhn algoritm luhna */

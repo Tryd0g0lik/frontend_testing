@@ -10,6 +10,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const CopyPlugin = require("copy-webpack-plugin");
 const webpack = require("webpack");
+
 // const loader = require('mini-css-extract-plugin/types/loader');
 // const isProduction = process.env.NODE_ENV; // == 'production';
 

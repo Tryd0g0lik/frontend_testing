@@ -4,8 +4,15 @@
 	],
 	"env": {
 		"test": {
-			"plugins": [
-				"@babel/plugin-transform-modules-commonjs"
+			"presets": [
+				[
+					"@babel/plugin-transform-modules-commonjs",
+					{
+						"targets": {
+							"node": "current"
+						}
+					}
+				]
 			]
 		}
 	},

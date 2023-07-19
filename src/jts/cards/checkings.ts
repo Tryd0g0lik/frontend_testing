@@ -116,7 +116,25 @@ export class Luhn {
 		return false
 	}
 
+	cleaningPage() {
+		const dom_ul = document.querySelector('p[style="color:red"]') as HTMLElement;
+
+		dom_ul !== undefined && dom_ul !== null ? dom_ul.remove() : null;
+	}
+
 	startWork() {
+		const dom_ul = document.querySelector('main') as any;
+
+		if (this.cardGet === false) {
+			// debugger;
+			const err = new Error();
+			err.message = "This number can't pass the checked (Luhna algoritm)"
+			err.name = 'LuhnaError'
+
+			dom_ul.insertAdjacentHTML('beforeEnd', `<p style="color:red">${err}: ${err.message}</p>`);
+			console.error(err.name, err.message);
+
+		}
 		return this.cardGet
 	}
 }
