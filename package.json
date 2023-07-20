@@ -7,17 +7,16 @@
 		"example": "example"
 	},
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1",
+		"test": "jest --testPathPattern=./src/jts/__e2e__/ --runInBand",
+		"serve-test": "webpack serve --port=9000",
 		"start": "webpack --config ./webpack.dev.js",
 		"build": "webpack --config ./webpack.prod.js",
 		"watch": "webpack --watch",
-		"serve": "webpack serve",
+		"serve": "webpack serve --port=8080",
 		"lint": "eslint",
 		"prepare": "husky install",
 		"husk": "yarn run prepare",
-		"pushing": "git push origin master",
-		"build:dev": "webpack --mode=development",
-		"build:prod": "webpack --mode=production --node-env=production"
+		"pushing": "git push origin master"
 	},
 	"repository": {
 		"type": "git",
@@ -32,7 +31,8 @@
 	"devDependencies": {
 		"@babel/cli": "^7.21.5",
 		"@babel/core": "^7.21.8",
-		"@babel/preset-env": "^7.21.5",
+		"@babel/plugin-transform-modules-commonjs": "^7.22.5",
+		"@babel/preset-env": "^7.22.9",
 		"@types/node": "^20.2.4",
 		"@types/webpack": "^5.28.1",
 		"@types/webpack-dev-server": "^4.7.2",
@@ -63,6 +63,7 @@
 		"postcss": "^8.4.24",
 		"postcss-loader": "^7.3.3",
 		"prettier": "^2.8.8",
+		"puppeteer": "^20.8.3",
 		"source-map-loader": "^4.0.1",
 		"style-loader": "^3.3.2",
 		"ts-loader": "^9.4.4",

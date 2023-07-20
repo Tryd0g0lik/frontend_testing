@@ -76,8 +76,7 @@ export class Pages {
 		/**
 		 * TODO: reset the all changes
 		*/
-		const dom_ul = document.querySelector('p[style="color:red"]') as HTMLElement;
-		dom_ul !== undefined && dom_ul !== null ? dom_ul.remove() : null;
+
 
 		const dom_liAll = document.querySelectorAll('.cards > li');
 		for (let i = 0; i < dom_liAll.length; i++) {
@@ -111,20 +110,27 @@ export class Forms {
 		 */
 		const number_card_field = document.querySelector('#form [name="card_number"]') as HTMLFormElement;
 		const number_card = number_card_field['value'] as string;
+		const dom_ul = document.querySelector('ul.cards') as HTMLElement;
 
 		const reg = new RegExp('[0-9 ]{12,72}');
 		if (reg.test(number_card)) return number_card
 		else if (number_card.length > 72 || number_card.length < 12) {
+
+
 			const err = new Error();
 			err.message = "Ckeck length the bank's  number card. Length betwen 12-72 intergers"
 			err.name = 'DataForm'
 			console.error(err.name, err.message);
+			dom_ul.insertAdjacentHTML('afterend', `<p style="color:red">${err.name}: ${err.message}</p>`);
+
 		}
 		else {
 			const err = new Error();
 			err.message = "Check the data type. Input only integers"
 			err.name = 'DataTypeForm'
 			console.error(err.name, err.message);
+			dom_ul.insertAdjacentHTML('afterend', `<p style="color:red">${err.name}: ${err.message}</p>`);
+
 		}
 		return '000000000000'
 	}

@@ -8,7 +8,7 @@ const { Pages, Forms } = require('./cards/pages.ts');
 Мир
 '2202201302350075'
 VISA
- 4024007180763251
+4024007180763251
 4485798769396487
 4055744470178618688
 MasterCard
@@ -28,6 +28,7 @@ function trash(str: string) {
 	const manual = check.startWork(str); //return [<string-brand-bank's-card It's manual>, number, number]
 
 	const luhn = new Luhn(manual, str); /* Luhna algoritm */
+	luhn.cleaningPage();
 	const resp_boolean = luhn.startWork(); /* return ther tru or false.
 	If got a true be means - User insert a mien bank's card number 
 	wich a number passed the Luhn algoritm luhna */
