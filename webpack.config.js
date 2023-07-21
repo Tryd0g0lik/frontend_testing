@@ -20,6 +20,7 @@ module.exports = {
 	target: 'web',
 	entry: './src/index.js',
 	devtool: 'inline-source-map',
+
 	// output: {
 	// 	path: path.resolve(__dirname, './dist'),
 	// },

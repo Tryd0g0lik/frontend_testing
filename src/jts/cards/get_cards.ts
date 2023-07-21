@@ -11,7 +11,7 @@ export class getNumberCard {
 		 * TODO: string or number geting from the bank's card. Got the bank's card number from user we checking the bank's card type 
 		 * :atributs bank: It's string or number geting from the bank's card.
 		*/
-		this.cardsNumOfUser = num;
+		this.cardsNumOfUser = num.replaceAll(' ', '');
 		/**
 		 * card's template is
 		 * 'brand' : {'first integer of card's number' : [max count integers of the card's number]}
@@ -34,7 +34,7 @@ export class getNumberCard {
 		}
 	}
 
-	get integerCards(): number {
+	get getFirstInt(): number {
 		/**
 		 * TODO: card's number geting.
 		 * Return the first integers of номера.
@@ -42,13 +42,13 @@ export class getNumberCard {
 		let cardNum_len!: number;
 		let cardNum: number;
 
-		cardNum_len = String(this.cardsNumOfUser).replace(' ', '').length;
+		cardNum_len = String(this.cardsNumOfUser).length;
 		if (cardNum_len > 0) {
 			cardNum = Number(String(this.cardsNumOfUser)[0]);
 
 		} else {
 			const err = new Error("You no inserted a bak's card number, maybe. Please insert/write the number from a bank's card");
-			err.name = 'Error integerCards 01';
+			err.name = 'Error getFirstInt 01';
 			console.error(err.name, err.message);
 			return 0
 		}
@@ -73,7 +73,7 @@ export class getNumberCard {
 			*/
 
 			// making a simple copy of the data
-			const integer_cards = [this.integerCards].filter((integ) => integ > 0 ? integ : 0);
+			const integer_cards = [this.getFirstInt].filter((integ) => integ > 0 ? integ : 0);
 			const strFirst_integ_OfNumberCard: string[] = [];
 			const strMaxCount_integ_OfNumberCard: number[] = [];
 
@@ -113,7 +113,7 @@ export class getNumberCard {
 
 			form.insertAdjacentHTML('beforeEnd', `<p style="color:red">${err}: ${err.message}</p>`);
 			console.error(err.name, err.message);
-			stop
+
 		}
 		return resul
 
