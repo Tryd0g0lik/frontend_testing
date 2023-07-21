@@ -22,6 +22,8 @@ export class CheckingCards {
 		let arr_ofOne_card_manual: any = []; //[string, number[]]
 		let elem: any[] = [];
 		for (let elem_ of this.cards) {
+
+			console.log("CheckingCards ELEM_: ", elem_)
 			elem = elem_
 			break
 		}

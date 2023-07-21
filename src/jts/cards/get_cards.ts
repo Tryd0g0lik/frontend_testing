@@ -11,7 +11,8 @@ export class getNumberCard {
 		 * TODO: string or number geting from the bank's card. Got the bank's card number from user we checking the bank's card type 
 		 * :atributs bank: It's string or number geting from the bank's card.
 		*/
-		this.cardsNumOfUser = num.replaceAll(' ', '');
+		const regex = new RegExp('[a-zA-Zа-яёА-ЯЁ.?, ]', 'g');
+		this.cardsNumOfUser = num.replaceAll(regex, '');
 		/**
 		 * card's template is
 		 * 'brand' : {'first integer of card's number' : [max count integers of the card's number]}
@@ -57,8 +58,8 @@ export class getNumberCard {
 
 	get cardsManuals(): any[] {
 		/* 
-		*	Получив первые две цифры из пользовательского номера карты
-		*		получаем список карт (с максимальной длиной номера карты )
+		* TODO: on the entrance getiing first integer from the card's number. Provider is a getFirstInt 
+	  * returns [<Brand card>:string, {<first int fron numbers-brand>:string, [<count integers>:number,]}]
 		*/
 
 		let list_elem: string[] = [];
@@ -68,8 +69,9 @@ export class getNumberCard {
 		for (const elem in this.names) list_elem.push(elem);
 		Array.from(list_elem).forEach((brand) => {
 			/*
-			*	we searching names (brands bank's kard) where 'this.names["brand"].keys() === this.cardsNumOfUser'
+			*	TODO: we searching names (brands bank's kard) where 'this.names["brand"].keys() === this.cardsNumOfUser'
 			*		This a searched numbers saveing to Map();
+		  * 
 			*/
 
 			// making a simple copy of the data
@@ -79,7 +81,6 @@ export class getNumberCard {
 
 			for (let str of Object.keys(this.names[brand])) strFirst_integ_OfNumberCard.push(str);
 			for (let str of Object.keys(this.names[brand])) strMaxCount_integ_OfNumberCard.push(this.names[brand][str]);
-
 			if (strFirst_integ_OfNumberCard.length > 0) {
 				if ((strFirst_integ_OfNumberCard).length < 2
 					&& Number(strFirst_integ_OfNumberCard[0]) === integer_cards[0]) {
@@ -91,21 +92,18 @@ export class getNumberCard {
 					}
 				} 
 			}
-			// else {
-			// 	const dom_ul = document.querySelector('ul.cards') as HTMLElement;
-			// 	dom_ul.insertAdjacentHTML('afterend', '<p style="color:red">what is so in wrong? Look the "get_cards.ts" page to the "cardsManuals" method</p>');
-			// }
-
 		});
 		let resul: any[] = [];
 		// let resp : [string, { key: number, value: number[] }]
-		let resp: any;
+		// let resp: any;
+		let k: string = '';
+		let v: any[] = []
 		const form = document.querySelector('.form') as any;
 
 		// debugger;
 		if (map.size > 0) {			
 
-			for (resp of Array.from(map.entries())) resul.push(resp);
+			for ([k, v] of map.entries()) resul.push([k, v]);
 		} else {
 			const err = new Error();
 			err.message = "This number can't faound by the monual. 'cardsManuals' method from the get_cards.ts"
@@ -115,6 +113,8 @@ export class getNumberCard {
 			console.error(err.name, err.message);
 
 		}
+		console.log("cardsManuals MAP: !!!!", map)
+		console.log("cardsManuals RESUL: !!!!", Array.from(resul))
 		return resul
 
 	}
