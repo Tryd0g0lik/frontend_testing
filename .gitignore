@@ -4,3 +4,4 @@ pic/
 !src/
 node_modules
 dist
+.vscode
