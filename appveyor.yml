@@ -19,7 +19,7 @@ cache:
   - node_modules
 
 install:
- - yarn
+ - npm
 
 build: off
 
@@ -28,15 +28,15 @@ deploy: off
 
 branches:
   only:
-    - v1
+    - master
 
 artifacts:
   - path: '\dist/to/file.exe\'
 
 
 after_build:
-  - yarn run build
-  - yarn run lint
+  - npm run build
+  - npm run lint
   - ps: Get-ChildItem .\*.nupkg | % { Push-AppveyorArtifact $_.FullName -FileName $_.Name }
 
 deploy_script:
@@ -48,5 +48,5 @@ deploy_script:
   - git config --global user.email work80@mail.ru
   - ps: Write-Host "https://$GITHUB_TOKEN:x-oauth-basic@github.com" > "$HOME/.git-credentials" -NoNewline
 
-  - yarn add push-dir --dir=dist --branch=master --force --verbose
+  - npm install push-dir --dir=dist --branch=master --force --verbose
 
