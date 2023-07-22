@@ -86,7 +86,9 @@ export class Luhn {
 		*	returns: true or false
 		*/
 		this.manual = card_manual;
-		this.card_num = card_num;
+		const regex = new RegExp('[a-zA-Zа-яёА-ЯЁ.?, ]', 'g');
+		this.card_num = card_num.trim().replaceAll(regex, '');
+		;
 	}
 
 	get cardGet() {

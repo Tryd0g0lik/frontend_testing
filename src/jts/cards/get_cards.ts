@@ -12,7 +12,7 @@ export class getNumberCard {
 		 * :atributs bank: It's string or number geting from the bank's card.
 		*/
 		const regex = new RegExp('[a-zA-Zа-яёА-ЯЁ.?, ]', 'g');
-		this.cardsNumOfUser = num.replaceAll(regex, '');
+		this.cardsNumOfUser = num.trim().replaceAll(regex, '');
 		/**
 		 * card's template is
 		 * 'brand' : {'first integer of card's number' : [max count integers of the card's number]}
@@ -42,7 +42,6 @@ export class getNumberCard {
 		*/
 		let cardNum_len!: number;
 		let cardNum: number;
-
 		cardNum_len = String(this.cardsNumOfUser).length;
 		if (cardNum_len > 0) {
 			cardNum = Number(String(this.cardsNumOfUser)[0]);
@@ -98,23 +97,23 @@ export class getNumberCard {
 		// let resp: any;
 		let k: string = '';
 		let v: any[] = []
-		const form = document.querySelector('.form') as any;
 
 		// debugger;
 		if (map.size > 0) {			
 
 			for ([k, v] of map.entries()) resul.push([k, v]);
 		} else {
-			const err = new Error();
-			err.message = "This number can't faound by the monual. 'cardsManuals' method from the get_cards.ts"
-			err.name = 'CardsManualsError'
+			// const form = document.querySelector('.form') as any;
+			// const err = new Error();
+			// err.message = "This number can't faound by the monual. 'cardsManuals' method from the get_cards.ts"
+			// err.name = 'CardsManualsError'
 
-			form.insertAdjacentHTML('beforeEnd', `<p style="color:red">${err}: ${err.message}</p>`);
-			console.error(err.name, err.message);
-
+			// form.insertAdjacentHTML('beforeEnd', `<p style="color:red">${err}: ${err.message}</p>`);
+			// console.error(err.name, err.message);
+			null
+			return ['NaN', { 0: [0,] }]
 		}
-		console.log("cardsManuals MAP: !!!!", map)
-		console.log("cardsManuals RESUL: !!!!", Array.from(resul))
+		// simple return ['Visa', {'4': [16. 19]}]
 		return resul
 
 	}
@@ -124,3 +123,88 @@ export class getNumberCard {
 		return this.cardsManuals;
 	}
 }
+
+
+	// 	a: "Testing card number for a bank's name: 'Мир 02'",
+	// 	name: 'Мир 02',
+	// 	number: ['2202201302350074'],
+	// 	expected: ['мир', { 2: [12, 16] }]
+	// },
+	// {
+	// 	a: "Testing card number for a bank's name: 'Мир 03'",
+	// 	name: 'Мир 03',
+	// 	number: ['3202201302350075'],
+	// 	expected: ['мир', { '2': [12, 16] }]
+	// },
+	// {
+	// 	a: "Testing card number for a bank's name: 'Мир 04'",
+	// 	name: 'Мир 04',
+	// 	number: ['22022013023500755'],
+	// 	expected: ['мир', { '2': [12, 16] }]
+	// },
+	// {
+	// 	a: "Testing card number for a bank's name: 'Мир 05'",
+	// 	name: 'Мир 05',
+	// 	number: [' 2202201302350075'],
+	// 	expected: ['2202201302350075']
+	// },
+	// {
+	// 	a: "Testing card number for a bank's name: 'Мир 06'",
+	// 	name: 'Мир 06',
+	// 	number: ['2202201302350075 '],
+	// 	expected: ['2202201302350075']
+	// },
+	// {
+	// 	a: "Testing card number for a bank's name: 'Мир 07'",
+	// 	name: 'Мир 07',
+	// 	number: [' 2202201302350075 '],
+	// 	expected: ['2202201302350075']
+	// },
+	// {
+	// 	a: "Testing card number for a bank's name: 'Мир 08'",
+	// 	name: 'Мир 08',
+	// 	number: ['22022013 02350075'],
+	// 	expected: ['2202201302350075']
+	// },
+	// {
+	// 	a: "Testing card number for a bank's name: 'Мир 09'",
+	// 	name: 'Мир 09',
+	// 	number: ['22022013 023 50075'],
+	// 	expected: ['2202201302350075']
+	// },
+	// {
+	// 	a: "Testing card number for a bank's name: 'Мир 10'",
+	// 	name: 'Мир 10',
+	// 	number: ['22022013 023 50075 '],
+	// 	expected: ['2202201302350075']
+	// },
+	// {
+	// 	a: "Testing card number for a bank's name: 'Мир 11'",
+	// 	name: 'Мир 11',
+	// 	number: [' 22022013 023 50075'],
+	// 	expected: ['2202201302350075']
+	// },
+	// {
+	// 	a: "Testing card number for a bank's name: 'Мир 12'",
+	// 	name: 'Мир 12',
+	// 	number: [' 22022013 023 50075 '],
+	// 	expected: ['2202201302350075']
+	// },
+	// {
+	// 	a: "Testing card number for a bank's name: 'Мир 13'",
+	// 	name: 'Мир 13',
+	// 	number: ['220f2201302350075'],
+	// 	expected: []
+	// },
+	// {
+	// 	a: "Testing card number for a bank's name: 'Мир 14'",
+	// 	name: 'Мир 14',
+	// 	number: ['220f220130235007'],
+	// 	expected: []
+	// },
+	// {
+	// 	a: "Testing card number for a bank's name: 'Мир 15'",
+	// 	name: 'Мир 15',
+	// 	number: ['2055744470178618688'],
+	// 	expected: []
+	// },
