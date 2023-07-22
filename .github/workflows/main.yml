@@ -1,50 +1,52 @@
-name: frontend_testing_net
-on: [push, pull_request]
+version: 1.1.{build}-{branch}
 
-# Down scope as necessary via https://docs.github.com/en/actions/security-guides/automatic-token-authentication#modifying-the-permissions-for-the-github_token
-permissions:
-  checks: write
-  contents: write
-  pages: write
-  id-token: write
-  deployments: write
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
 
-    strategy:
-      matrix:
-        node-version: [18.x]
+image:
+ - Visual Studio 2019
 
-    steps:
-      - uses: actions/checkout@v3
+platform:
+  - x64
+  # - x86
+  # - amd64
 
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
-        with:
-          node-version: ${{ matrix.node-version }}
+init:
+  - git config --global core.autocrlf input
 
-      - name: Install dependencies
-        run: npm install
+stack: node 18.12.0
 
-      - name: Run linters
-        run: npm run lint
+cache:
+  - node_modules
 
-      - name: Build
-        run: npm run build
+install:
+ - yarn
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v2
+build: off
 
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
-        with:
-          path: 'dist'
 
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v1
+deploy: off
+
+branches:
+  only:
+    - master
+
+artifacts:
+  - path: '\dist/to/file.exe\'
+
+
+after_build:
+  - yarn run build
+  - yarn run lint
+  - ps: Get-ChildItem .\*.nupkg | % { Push-AppveyorArtifact $_.FullName -FileName $_.Name }
+
+deploy_script:
+
+# https://www.appveyor.com/docs/how-to/git-push/
+# https://www.appveyor.com/docs/how-to/git-push/#adding-access-token-to-credential-store
+  - git config --global credential.helper store
+  - git config --global user.name Tryd0g0lik
+  - git config --global user.email work80@mail.ru
+  - ps: Write-Host "https://$GITHUB_TOKEN:x-oauth-basic@github.com" > "$HOME/.git-credentials" -NoNewline
+
+  - yarn add push-dir --dir=dist --branch=master --force --verbose
+
