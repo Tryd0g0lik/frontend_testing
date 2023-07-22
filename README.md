@@ -1,4 +1,4 @@
-[![Build status](https://ci.appveyor.com/api/projects/status/rm29bx779xbway5p/branch/master?svg=true)](https://ci.appveyor.com/project/Tryd0g0lik/frontend-testing-net/branch/master)
+
 # Домашнее задание к занятию "4.Организация тестирования"
 
 Правила сдачи задания:
