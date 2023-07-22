@@ -1,4 +1,4 @@
-
+[Look the www-page](https://tryd0g0lik.github.io/frontend_testing_net/) [![Build status](https://ci.appveyor.com/api/projects/status/rm29bx779xbway5p?svg=true)](https://ci.appveyor.com/project/Tryd0g0lik/frontend-testing-net)
 # Домашнее задание к занятию "4.Организация тестирования"
 
 Правила сдачи задания:

@@ -7,7 +7,7 @@
 		"example": "example"
 	},
 	"scripts": {
-		"test": "jest",
+		"test": "jest --runInBand --passWithNoTests --watchAll",
 		"serve-test": "webpack serve --port=9000",
 		"start": "webpack --config ./webpack.dev.js",
 		"build": "webpack --config ./webpack.prod.js",
