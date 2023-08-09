@@ -1,21 +1,7 @@
 const { CrateForm } = require('./mocks/mock.ts');
-const { getNumberCard } = require('./cards/get_cards.ts');
+const { getNumberCard } = require('./cards/getCards.ts');
 const { CheckingCards, Luhn } = require('./cards/checkings.ts');
 const { Pages, Forms } = require('./cards/pages.ts');
-
-// const str = "number from bank's card";
-/* const str = '2202201302350075'
-Мир
-'2202201302350075'
-VISA
-4024007180763251
-4485798769396487
-4055744470178618688
-MasterCard
-5437419573427824
-2221008857726907
-5548644296994737
-*/
 
 
 const elem = new CrateForm();
@@ -45,3 +31,18 @@ function trash(str: string) {
 
 const f = new Forms(trash);
 f.startWork();
+
+
+// const str = "number from bank's card";
+/* const str = '2202201302350075'
+Мир
+'2202201302350075'
+VISA
+4024007180763251
+4485798769396487
+4055744470178618688
+MasterCard
+5437419573427824
+2221008857726907
+5548644296994737
+*/

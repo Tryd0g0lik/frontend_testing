@@ -4,7 +4,7 @@
  * Pluse, propyrty (manyal) it's card - simply example of this: "['мир', { 2: [12, 16] }]"
  */
 
-import { getNumberCard } from "../cards/get_cards";
+import { getNumberCard } from "../cards/getCards.ts";
 
 const response = test.each([
 	{

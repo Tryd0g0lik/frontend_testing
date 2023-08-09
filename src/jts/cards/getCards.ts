@@ -74,19 +74,19 @@ export class getNumberCard {
 			*/
 
 			// making a simple copy of the data
-			const integer_cards = [this.getFirstInt].filter((integ) => integ > 0 ? integ : 0);
-			const strFirst_integ_OfNumberCard: string[] = [];
+			const integerCards = [this.getFirstInt].filter((integ) => integ > 0 ? integ : 0);
+			const firstIntegOfCard: string[] = [];
 			const strMaxCount_integ_OfNumberCard: number[] = [];
 
-			for (let str of Object.keys(this.names[brand])) strFirst_integ_OfNumberCard.push(str);
+			for (let str of Object.keys(this.names[brand])) firstIntegOfCard.push(str);
 			for (let str of Object.keys(this.names[brand])) strMaxCount_integ_OfNumberCard.push(this.names[brand][str]);
-			if (strFirst_integ_OfNumberCard.length > 0) {
-				if ((strFirst_integ_OfNumberCard).length < 2
-					&& Number(strFirst_integ_OfNumberCard[0]) === integer_cards[0]) {
+			if (firstIntegOfCard.length > 0) {
+				if ((firstIntegOfCard).length < 2
+					&& Number(firstIntegOfCard[0]) === integerCards[0]) {
 					map.set(brand, this.names[brand]);
 
-				} else if ((strFirst_integ_OfNumberCard).length > 1) {
-					if (Number(strFirst_integ_OfNumberCard[0]) === integer_cards[0]) {
+				} else if ((firstIntegOfCard).length > 1) {
+					if (Number(firstIntegOfCard[0]) === integerCards[0]) {
 						for (const ind in Object.keys(this.names[brand])) map.set(brand, this.names[brand][ind])
 					}
 				} 
@@ -103,14 +103,6 @@ export class getNumberCard {
 
 			for ([k, v] of map.entries()) resul.push([k, v]);
 		} else {
-			// const form = document.querySelector('.form') as any;
-			// const err = new Error();
-			// err.message = "This number can't faound by the monual. 'cardsManuals' method from the get_cards.ts"
-			// err.name = 'CardsManualsError'
-
-			// form.insertAdjacentHTML('beforeEnd', `<p style="color:red">${err}: ${err.message}</p>`);
-			// console.error(err.name, err.message);
-			null
 			return ['NaN', { 0: [0,] }]
 		}
 		// simple return ['Visa', {'4': [16. 19]}]

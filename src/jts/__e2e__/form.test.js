@@ -26,7 +26,7 @@
 // 		await page.waitForTimeout(3000);
 
 
-// 	}, 50000);
+// 	}, 50000);	
 
 // 	afterEach(async () => {
 // 		await browser.close();

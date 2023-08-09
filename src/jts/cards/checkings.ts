@@ -1,6 +1,6 @@
 /**
  * There i do two checjings for a user nuber card.
- * First checking it's some checklist for a user number wich has the personal rules from the get_cards.ts page. 
+ * First checking it's some checklist for a user number wich has the personal rules from the getCards.ts page. 
  * It's rule name a 'CheckingCards'.
  * Second rules it's a popular Luhna algorotm.
  */
@@ -19,7 +19,7 @@ export class CheckingCards {
 		*	TODO: searching a name bank's card, first integer and a max count  integer from the card's number
 		*/
 		let n: string;
-		let arr_ofOne_card_manual: any = []; //[string, number[]]
+		let arrOfCardManual: any = []; //[string, number[]]
 		let elem: any[] = [];
 		for (let elem_ of this.cards) {
 
@@ -30,29 +30,25 @@ export class CheckingCards {
 
 		n = elem[0]
 		for (const [key, val] of Object.entries(elem[1])) {
-			arr_ofOne_card_manual.push(n) // bank's name 
-			arr_ofOne_card_manual.push(Number(key)) // first integer of the card. It's a long number
-			arr_ofOne_card_manual.push(Array(val)); // This's a long number of the card
+			arrOfCardManual.push(n) // bank's name 
+			arrOfCardManual.push(Number(key)) // first integer of the card. It's a long number
+			arrOfCardManual.push(Array(val)); // This's a long number of the card
 		}
 		this.cards.shift();
-		return arr_ofOne_card_manual
+		return arrOfCardManual
 	}
 
 	set setIntegOfCardNum(num_: string) {
 		/*
-	 * TODO: return tru if a symbol count === max count integers from the card's number  or false.
 	 * This a max-count  we geting from the 'getOneCards'.
 	 * :atrib num_: it's a card's number/
 	*/
 		let el = this.getOneCards;
-		console.log("el: ", el)
 		const elem = Array(el[2][0])[0];
-		console.log("elem: ", elem)
 		for (let i = 0; i < elem.length; i++) {
 			if (String(num_).length === elem[i]) {
 
 				this.singleCard = [el[0], el[1], elem[i]]
-				console.log("sCard--------: ", [el[0], el[1], elem[i]])
 				return
 			}
 		}
