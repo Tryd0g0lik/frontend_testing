@@ -73,27 +73,27 @@ export class CheckingCards {
 
 export class Luhn {
 	manual: [string, number, number];
-	card_num: string;
-	constructor(card_manual: [string, number, number] = ['', 0, 0], card_num: string) {
+	cardNumber: string;
+	constructor(cardManual: [string, number, number] = ['', 0, 0], cardNumber: string) {
 		/*
 		*	TODO: Card's number checking by the Luna-algorithm
-		*	:atrib card_manual: this's "[card-name, first-integer, symbol count  of number card  ]"
-		*	:atrib card_num: this's card's number.
+		*	:atrib cardManual: this's "[card-name, first-integer, symbol count  of number card  ]"
+		*	:atrib cardNumber: this's card's number.
 		*	returns: true or false
 		*/
-		this.manual = card_manual;
+		this.manual = cardManual;
 		const regex = new RegExp('[a-zA-Zа-яёА-ЯЁ.?, ]', 'g');
-		this.card_num = card_num.trim().replaceAll(regex, '');
+		this.cardNumber = cardNumber.trim().replaceAll(regex, '');
 		;
 	}
 
 	get cardGet() {
 		/*Прошел алгоритмя луна или нет */
 
-		const new_manual = Array(this.manual)[0].slice();
-		const num = ([this.card_num].slice())[0];
+		const newManual = Array(this.manual)[0].slice();
+		const num = ([this.cardNumber].slice())[0];
 
-		if (String(new_manual[0]).length > 0) {
+		if (String(newManual[0]).length > 0) {
 			const arr = _.chop(num, 1);
 			let int = 0;
 
@@ -117,13 +117,13 @@ export class Luhn {
 	}
 
 	cleaningPage() {
-		const dom_ul = document.querySelector('p[style="color:red"]') as HTMLElement;
+		const cardLists = document.querySelector('p[style="color:red"]') as HTMLElement;
 
-		dom_ul !== undefined && dom_ul !== null ? dom_ul.remove() : null;
+		cardLists !== undefined && cardLists !== null ? cardLists.remove() : null;
 	}
 
 	startWork() {
-		const dom_ul = document.querySelector('main') as any;
+		const cardLists = document.querySelector('main') as any;
 
 		if (this.cardGet === false) {
 			// debugger;
@@ -131,7 +131,7 @@ export class Luhn {
 			err.message = "This number can't pass the checked (Luhna algoritm)"
 			err.name = 'LuhnaError'
 
-			dom_ul.insertAdjacentHTML('beforeEnd', `<p style="color:red">${err}: ${err.message}</p>`);
+			cardLists.insertAdjacentHTML('beforeEnd', `<p style="color:red">${err}: ${err.message}</p>`);
 			console.error(err.name, err.message);
 
 		}

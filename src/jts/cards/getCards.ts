@@ -40,10 +40,10 @@ export class getNumberCard {
 		 * TODO: card's number geting.
 		 * Return the first integers of номера.
 		*/
-		let cardNum_len!: number;
+		let cardNumberLength!: number;
 		let cardNum: number;
-		cardNum_len = String(this.cardsNumOfUser).length;
-		if (cardNum_len > 0) {
+		cardNumberLength = String(this.cardsNumOfUser).length;
+		if (cardNumberLength > 0) {
 			cardNum = Number(String(this.cardsNumOfUser)[0]);
 
 		} else {
@@ -76,10 +76,10 @@ export class getNumberCard {
 			// making a simple copy of the data
 			const integerCards = [this.getFirstInt].filter((integ) => integ > 0 ? integ : 0);
 			const firstIntegOfCard: string[] = [];
-			const strMaxCount_integ_OfNumberCard: number[] = [];
+			const strMaxCountIntegOfNumberCard: number[] = [];
 
 			for (let str of Object.keys(this.names[brand])) firstIntegOfCard.push(str);
-			for (let str of Object.keys(this.names[brand])) strMaxCount_integ_OfNumberCard.push(this.names[brand][str]);
+			for (let str of Object.keys(this.names[brand])) strMaxCountIntegOfNumberCard.push(this.names[brand][str]);
 			if (firstIntegOfCard.length > 0) {
 				if ((firstIntegOfCard).length < 2
 					&& Number(firstIntegOfCard[0]) === integerCards[0]) {
@@ -107,7 +107,6 @@ export class getNumberCard {
 		}
 		// simple return ['Visa', {'4': [16. 19]}]
 		return resul
-
 	}
 
 

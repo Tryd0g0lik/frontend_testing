@@ -1,4 +1,4 @@
-const { CrateForm } = require('./mocks/mock.ts');
+const { CrateForm } = require('./mocks/index.ts');
 const { getNumberCard } = require('./cards/getCards.ts');
 const { CheckingCards, Luhn } = require('./cards/checkings.ts');
 const { Pages, Forms } = require('./cards/pages.ts');
