@@ -1,5 +1,5 @@
 [Look the www-page](https://tryd0g0lik.github.io/frontend_testing_net/) [![Build status](https://ci.appveyor.com/api/projects/status/rm29bx779xbway5p?svg=true)](https://ci.appveyor.com/project/Tryd0g0lik/frontend-testing-net)
-# Задание
+
 
 Условия приёма:
 
@@ -10,8 +10,6 @@
 ---
 
 ### Credit Card Validator
-
-#### Легенда
 
 Задача: сделать виджет, позволяющий вводить номер карты (можете в качестве общего развития почитать про PCI DSS).
 
